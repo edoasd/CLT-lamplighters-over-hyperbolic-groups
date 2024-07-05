@@ -1,0 +1,38 @@
+\section{Preliminaries}
+
+\subsection{Hyperbolic groups}
+Say basic things about hyperbolicity; explain pivots
+
+\subsection{Lamplighter groups}
+Say basic things about wreath products and lamplighter groups. Give the word metric formula for the sws generating set.
+
+\red{If we are going to work with infinite lamp groups, it is maybe better to work with the following standard word length (if the lamp group is finite, one can instead consider switch-walk-switch metric and for this one the first term below does not appear.)}
+Here for any $g=(f,x)\in A\wr H$ the word length $|g|$ is
+\[
+|g|= \sum_{b\in\supp{f}}|f(b)|_{A} + \mathrm{TSP}(e_H,x,\supp{f}).
+\]
+
+\subsection{Random walks}
+\begin{enumerate}
+	\item Recall basic concepts of random walks on groups.
+	\item Introduce all necessary results and definitions of Mathieu-Sisto.
+	\item Introduce pivots and the results of Gouëzel that we will use.
+\end{enumerate}
+
+
+We will use the following general criterion of Mathieu-Sisto.
+
+\begin{defn}[Defective adapted cocycle]
+
+\end{defn}
+
+\begin{thm}[\cite{MathieuSisto2020}] \label{thm:generalCLT}
+	Suppose that $Q_n$ is a defective adapted cocycle with defect
+	\[
+	\Phi_{m,n} := Q_n - (Q_m + w_m Q_{m-n}).
+	\]
+	Suppose that there exists $C>0$ such that  \[
+	\sup_{m,n\ge 1}\E[|\Phi_{m,n}|^2] \le C.
+	\]
+	 Then the CLT holds for $Q_n$.
+\end{thm}

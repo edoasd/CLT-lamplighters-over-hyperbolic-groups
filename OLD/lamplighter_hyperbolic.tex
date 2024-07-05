@@ -1,0 +1,174 @@
+\section{CLT for the lamplighter over a hyperbolic group}
+%%% Proof using pivots
+
+%\begin{thm}
+%	Let $A$ be a non-trivial group and $H$ a non-elementary hyperbolic group. Consider a probability measure $\mu$ on $A\wr H$ such that
+%	\begin{enumerate}
+%		\item $\supp(\mu_H)$ is non-elementary, and
+%		\item $\mu_H$ has a finite second moment,
+%		\item $\mu=\mu_A*\mu_H$ (so the rw modifies the lamp in the current position and not anywhere else).
+%	\end{enumerate}
+%	Denote $\{w_n\}_{n\ge 0}$ the $\mu$-random walk on $A\wr H$. Then $\{|w_n|\}$ satisfies the CLT.
+%\end{thm}
+%
+%Here for any $g=(f,x)\in A\wr B$ the word length $|g|$ is
+%\[
+%|g|= \sum_{b\in\supp(f)}|f(b)|_{A} + \mathrm{TSP}(e_H,x,\supp(f)).
+%\]
+%
+%We will use the following general criterion of Mathieu-Sisto.
+
+%\begin{thm}[\cite{MathieuSisto2020}] \label{thm:generalCLT}
+%	Suppose that $Q_n$ is a defective adapted cocycle with defect
+%	\[
+%	\Phi_{m,n} := Q_n - (Q_m + w_m Q_{m-n})
+%	\]
+%	such that  there exists $C>0$  \[
+%	\E[|\Phi_{m,n}|^2] \le C
+%	\]
+%	uniformly on $m$ and $n$. Then the CLT holds for $Q_n$.
+%\end{thm}
+\subsection{Pivots}
+Let $\delta$ be the hyperbolicity constant of $H$. Denote by $d_H$ the word metric on $H$.
+
+Given a path $\gamma$ on the Cayley graph of $H$ and $g\in H$, denote by $\pi_{\gamma}(g)$ the element of $\gamma$ that minimizes word metric to $g$.
+
+\begin{defn}
+	Let $C,D,L>0$ where $L$ is sufficiently large depending on $C$ and $\delta$, and let $N\in \Z_{+}$. A time $m\ge 1$ is a \emph{pivot} for the sample path $\{w_n\}_{n}$ if   
+	\begin{enumerate}
+		\item $d_{H}(w^{H}_m,w^{H}_{m+N})\ge L$
+		\item Denote $\gamma$ any geodesic in $H$ connecting $w_m$ to $w_{m+N}.$ We want: 
+		\[ \forall k\le n, \pi_{\gamma}(w_k)\in \mathcal{N}_{C}(w_m),
+		\]
+		\item for all $n\le k\le n+N$ we have $w_k\in \mathcal{N}_{D}(\gamma)$, and
+		\item for all $k\ge m+N$, $\pi_{\gamma}(w_k)\in \mathcal{N}_{C}(w_{m+N})$.
+	\end{enumerate}
+\end{defn}
+In the previous definition one can just take $L\ge 20C+100\delta+1$ (see Section 4A of Gouezels paper for details).
+
+The following lemma will be our main tool
+
+\begin{lem}
+	For any $C, D, \delta>0$, and any $L>0$ sufficiently large (depending on $C,D,\delta$), there exists $R>0$ large such that 
+	\[
+	\sup_{m\ge 1}\P(\exists i\in [m,m+k]\text{ such that }i\text{ is a pivot})\ge 1-Re^{-k/R}.
+	\]
+\end{lem}
+\begin{proof}[Sketch of proof]
+	This is proven in proposition 4.11 in Gouezel's paper, where for Gouezel's definition of pivots, conditions 1,2, and 4 are met. To see why Gouezel's proof implies the lemma we state, we observe that for Gouezel's definition of pivots, the increments $ w _{n} ^{-1} w _{n+N} $ are drawn from some explicit finite set of isometries $ S \subset H $ that receive positive support from $ \mu_{H} ^{N} $. For this finite set of isometries, we can pick some $ D>0 $ large enough so that $ \mu ^{N} $ gives positive mass to each of the sets $ \pi _{H} ^{-1} (s) = \{(\varphi, s), \text{supp} \varphi \subset B _{D} ([e,s])\}$. Then tracing through the rest of Gouezel's proof we have the estimate required. 
+\end{proof}
+
+\subsection{TSP structure along pivots}
+
+Suppose that we are looking at a sample path $\{w_n\}_{n\ge 0}$ and that we have a pivoting time $m$. Then the group element $w_n=(f_n,x_n)$ looks like this:
+
+\[\supp(f_n)=P^{\prime}_1\cup P^{\prime}_2\cup P^{\prime}_3\]
+is a disjoint union. Let us denote $P_1=P^{\prime}_1\cup\{w_{m+u}\}$, $P_2=P^{\prime}_2\cup \{w_{m+u}, w_{m+u+N}\}$ and  $P_3=P^{\prime}_3\cup \{w_{m+u+N}\}$  such that
+\begin{enumerate}
+	\item for all $g\in P_1$, we have $\pi_{\gamma}(g)\in \mathcal{N}_{C}(w_m)$,
+	\item for all $g\in P_2$ we have $g\in \mathcal{N}_{D}(\gamma)$, and
+	\item for all $g\in P_3$ $\pi_{\gamma}(g)\in \mathcal{N}_{C}(w_{m+N})$.
+\end{enumerate}
+Here $\gamma$ represents a geodesic from $w_m$ to $w_{m+N}$.
+
+We are going to abuse notation (in this draft) and not make a distinction between the elements visited by a path, and the coding in the alphabet $\{P_1,P_2,P_3\}$ associated with it.
+\begin{defn}
+	Given a path $\eta$, let us call a \emph{backtracking} a subpath of $\eta$ that is of the form $P_1P_2^{*}P_3^{\varepsilon}P_2^{*}P_1^{\varepsilon^{\prime}}P_2^{*}P_3$ for $\varepsilon, \varepsilon^{\prime}\ge 1$. Here the $*$ symbolizes $0$ or more occurrences.
+\end{defn}
+
+\begin{lem}\label{lem: groceries lemma p1p3p1p3}
+	Let $\eta$ be a solution to the TSP for $|w_n|$. Then the coding of $\eta$ does not have a subword of the form $P_1P_3^{\varepsilon}P_1^{\varepsilon^{\prime }}P_3$, for $\varepsilon, \varepsilon^{\prime}\ge 1$.
+\end{lem}
+\begin{proof}
+	Surgery, meaning that you glue together the excursions to $P_1$, and you glue together the excursions to $P_3$, and connect them with any path through $P_2$. This gives something even shorter than optimal since each gluing strictly reduces the length of the path.
+\end{proof}
+
+\begin{cor}\label{cor: number of backtrackings}
+	Let $\eta$ be a solution to the TSP for $|w_n|$. Then the number of backtrackings of $\eta$ is at most $|P_2|$.
+\end{cor}
+\begin{proof}
+	Every backtracking must contain at least one element of $P_2$. (Recall that the path only has an element in its coding if it has not been visited before).
+\end{proof}
+
+\begin{lem}
+	Consider a sequence of points $\{w_n\}_n$ of $H$, that satisfies the decomposition of $\supp(f_n)$ given by the three conditions above, such that $\pi_{\gamma}(w_0)$ is within distance $C$ of the beginning of $\gamma$, and $\pi_{\gamma}(w_n)$  is within distance $C$ of the end of $\gamma$. Also we have that the length of $\gamma$ is at least $L$ (where $L$ is the large constant from the definition of pivots). (this is equivalent to satisfying the three properties above).
+	
+	Let $T$ be the length of a solution to $\mathrm{TSP}(w_0,w_n,\supp(f_n))=\mathrm{TSP}(w_0,w_n,P_1\cup P_2\cup P_3)=|w_n|_{\Z/2\Z \wr H}$. Then there exists a path $\eta$ that starts at $w_0$, finishes at $w_n$ and visits all points in $\supp(f_n)$ such that $length(\eta)\le T+100 N (L+2D)$, and which satisfies the following:
+	
+	The path $\eta$ induces a linear order of $\supp(f_n)$. What we require is that in the coding of $\eta$, all of the elements of $P_1$ appear before any of $P_3$. (i.e. the coding does not have a subsequence of the form $P_3 P_1$.
+\end{lem}
+\begin{proof}
+	
+	Let us first consider $\eta_0$ the optimal solution to the TSP. 
+	%\textbf{Claim: } Any optimal solution to the TSP never sees a sequence of the form $P_1P_3^{*}P_1^{*}P_3$.
+	%\textbf{Proof: }Surgery, meaning that you glue together the excursions to $P_1$, and you glue together the excursions to $P_3$, and connect them with any path through $P_2$. This gives something even shorter than optimal since each gluing strictly reduces the length of the path.
+	
+	
+	Lemma \ref{lem: groceries lemma p1p3p1p3} implies Corollary \ref{cor: number of backtrackings} that the total number of backtrackings is the size of $P_2$.
+	
+	Finally, the argument goes as follows: first do all excursions of $\eta_0$ on $P_1$, then visit all elements in $P_2$, and then do all excursion in $P_3$. In total we added at most $2D\times$(number of backtrackings)+(length of solution of TSP in P2 that visits all elements in P2). And the number of backtrackings is at most $|P_2|$ by the previous claim.
+	
+	%Start with the optimal solution to the TSP. This path will cross through $N_D(\gamma)$ a bounded number of times (at most the size of $P_2$). This implies that we can modify it (do surgery  near the starting and finishing points of $\gamma$) so that we obtain path that crosses through $N_D(\gamma)$ only once, while increasing length at each surgery a bounded number, and we do a bounded number of surgeries.
+\end{proof}
+% Below are some suggestions that could simplify the proof of the TSP part. They are based on the argument we had in the solution without pivots. It's great if you already have a complete proof of lemma 6, but if it truns out to be more time consuming that expected, I hope these suggestions could help.
+% It may be convenient to slightly modify the construction to make sure that every geodesic segment joining a point in P_1 with a point in P_2 or in P_3 intersects some set $B_1$ of small (relative to L) diameter that lies close to $w_m$ and "separates" P_1 from P_2 and P_3. The condition on projections ensures that this holds for geodesic segments from $P_1$ to $P_3$, but we may need some additional assumptions to make sure that this holds for geodesic segments from P_1 to P_2.  Of course, we would also like to find a similar set B_2 for P_3.
+
+% Kunal: thanks for the helpful suggestions! I agree that it is important that every geodesic segment joining a point in P_1 with a point in P_3 intersects a bounded neighbourhood of something 'separating' P_1 from P_2 and P_3. This is the role played by the geodesic \gamma in our arguments. At the pivotal time, we pass through some long geodesic such that (1) everything in P_1 projects near the beginning of gamma, (2) everything in P_2 is within a bounded neighbourhood of gamma, and (3) everything in P_3 projects near the end of gamma. By elementary hyperbolic geometry, this implies any geodesic connecting P_1 to P_2 or P_3 (or P_2 to P_3) must come within a bounded neighbourhood of gamma. In fact, this neighourhood of gamma serves the role of B_1 and B_2 simultaneously.
+
+%These modifications would allow us to get an easy upper bound on the total length of the segments added in the "surgery". The fact that B_1 and B_2 are far apart would be helful in bounding the number of the corssings of the central region.
+% It is also sufficient to bound the number of crossings of N_D as a constant-times- (size of P_2), we had an argument with 4*(size of P_2). To get this bound one can show that the TSP solution can not contain four consecutive crossings of the central region that do not add any point in P_2 to the TPS (otherwise, one can remove the long corossings and connect their intersections with B_1 and B_2 within these regions in appropriate order to get a shorter curve).
+
+%Kunal: I absolutely agree, it seems like Eduardo and I had the same argument in mind.
+
+In other words, we are saying that trying to solve the problem by first visiting all elements of $P_1$, and then visiting all elements of $P_3$, and crossing the middle section only once, it's at a bounded length of being optimal.
+
+\begin{lem}\label{lem: small values mn} For any $ N \in \mathbb{N} $ there exists some $ C > 0$ such that the following holds. set $ m \in \mathbb{N} $ be an integer and let $ U $ be the waiting time until the first pivot after time $ m $. Then we have
+	$$\sup_{m\ge 1}\E\left[\left( \sum_{i=m}^{m+U+N}|g_i| \right)^2\right]\le C.$$
+\end{lem}
+\begin{proof}
+	\textcolor{blue} { I'll go into the construction of pivots and explain why this is true. Maybe there's a simpler reasoning using only the exponential estimates on $ U $}.
+	
+	Recall that the way Gouezel constructs pivots is as follows: if we let $ S \subset H$ be our finite Schottky set, then we can decompose some convolution power $ \mu _{H} ^{N} $ as \[ \mu _{H} ^{N} = \alpha \mu _{S} + (1-\alpha)\nu \] for some positive $ \alpha >0$. Then we draw our increments as follows: let $ \{ \varepsilon _{i} \} _{i} $ be i.i.d. Bernoulli($ \alpha $) random variables. If $ \varepsilon _{i} = 1 $, we draw $ g' _{i} = s _{i} $ according to $ \mu _{S} $. Else we draw $g' _{i} = w _{i} $ according to $ \nu $. We observe that the sequence $ \{ g '_{1}...g' _{k} \} _{k} $ has the same distribution as $ \{ g _{1}...g _{k} \} _{k} $ for $ g _{i} \sim \mu _{H} ^{N} $.
+	
+	Now we denote the resampled random walk by $ g' _{1}...g' _{n} =w _{1}...w _{k _{1}} s _{1} w _{k _{1} +1} ...w _{k _{2}} s _{2} ... $, where the strings between $ s _{i}'s $ may be empty. Now each string $ w _{k _{i-1} +1}...w _{k _{i}} s _{i}  $ is distributed according to $ \nu ^{Z}* \mu _{S} $, where $ Z $ is a geometric random variable with parameter $ \alpha $. 
+	
+	Now Gouezel tells us that, conditional on any realization of the increments drawn from $ \nu $, the number of $ \mu _{S} $ increments $ \ell $ until we see a pivot has an exponential tail. This implies that
+	\[ \mathbb{E} \left[\left(\sum_{i = m}^{m+U+N} |g _{i}| \right) ^{2} | \{ w _{i} \} i \right] \leq \mathbb{E} \left[\left(L\ell + \sum_{i = 0}^{\ell-1} \sum_{k = K _{i}}^{K _{i+1} -1} |w _{i}|\right) ^{2} | \{ w _{i} \} _{i} \right] .\] 
+	
+	Now we can integrate over the possible values of $ w _{i} $ and use independence in order to conclude that 
+	
+	\[ \E\left[\left( \sum_{i=m}^{m+U+N}|g_i| \right)^2\right] \] is bounded uniformly over $ m $.
+\end{proof}
+
+\subsection{Proof of the CLT}
+
+Let us define $\Phi_{n,m}=|w_n|-|w_m^{-1}w_n|-|w_m|$. It suffices to show that $\E(|\Phi_{n,m}|^2)$ is finite (uniformly on $n$ and $m$).
+
+We will do the proof for finitely supported $\mu$.
+
+We fix $m$ and $n$. Let $m+u$ be the first instant after $m$ that you see a pivot.
+
+If $m+u+N>n$, then we use Lemma \ref{lem: small values mn} 
+$$
+\E |\Phi_{n,m}|^2\le \sup_{m\ge 1}\E\left[\left( \sum_{i=m}^{m+u}|g_i| \right)^2\right]\le C.
+$$
+Otherwise, $m+u+N\le n$ and we do the following.
+
+%Find a pivot at time $m+u$ for some positive $u>0$ which satisfies $\P(u\ge j)\le Re^{-j/R}.$
+
+\begin{enumerate}
+	\item The three conditions at the beginning of this subsection are satisfies.
+	\item Our objective is to get a good upper bound for $\Phi_{n,m}$ in the inequality
+	\[|w_n|\ge |w_m|+|w_{m}^{-1}w_n|-\Phi_{n,m}. \]
+	\item We first note that $\left| |w_m|-|w_{m+u}| \right|$ has a finite second moment. Indeed, this amount is controlled by the increments done during $u$ steps, and we know the distribution of how large $u$ can be. That is, we use Lemma \ref{lem: small values mn} to justify this.  The same is true for $\left| |w_m^{-1}w_n|-|w_{m+u}^{-1}w_n| \right|$. Again, this follows from a triangular inequality and Lemma \ref{lem: small values mn}.
+	\item From this, we just need a good upper bound for $\Phi_{n,m}$ in the inequality
+	\[|w_n|\ge |w_{m+u}|+|w_{m+u}^{-1}w_n|-\Phi_{n,m}. \]
+	\item We note that $\left||w_{m+u+N}^{-1}w_n| -|w_{m+u}^{-1}w_n|\right|$ is a bounded constant (since it only depends on $N$), and in particular has a finite second moment.
+	\item From this, we just need a good upper bound for $\Phi_{n,m}$ in the inequality
+	\[|w_n|\ge |w_{m+u}|+|w_{m+u+N}^{-1}w_n|-\Phi_{n,m}. \]
+	\item We look at the TSP between time $0$ and $n$, we use the path $\eta$ from the previous lemma to get a path which is near optimal and crosses only once the neighborhood of $\gamma$.
+	\item From this path we obtain near-optimal paths from $|w_{m+u}|$ and for $|w_{m+u+N}^{-1}w_n|$, by doing surgery near the endpoints of $\gamma$ and possibly adding a constant bounded amount of length.
+	
+	Indeed, we first take the path from the starting point to the last visit to $P_1$, and we connect it to $w_{m+u}$. This is at most $Optimal+L+2D$. Similarly we look at the first time we enter $P_3$, and connect that to a path to $w_{m+u+N}$. This again adds at most $Optimal+L+2D$.
+	\item From this, we directly apply \ref{thm:generalCLT}.
+\end{enumerate}

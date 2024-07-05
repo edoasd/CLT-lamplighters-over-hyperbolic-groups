@@ -1,0 +1,47 @@
+\section{Preliminaries}
+
+\subsection{Hyperbolic groups}
+Say basic things about hyperbolicity; explain pivots
+
+\subsection{Lamplighter groups}
+We consider the wreath products $A\wr H$, where $A$ is a finite non-trivial group and $H$ is a finitely generated group. Let $S_H$ be a finite and symmetric generating set of $H$. Then we consider the \emph{switch-walk-switch} $S_{\mathrm{sws}}$ generating set of $A\wr H$, given by
+\[
+S_{\mathrm{sws}}\coloneqq \Big\{ (\delta_a,0)(\mathbf{0},s)(\delta_{a^{\prime}},0)\Big| a,a^{\prime}\in A\text{ and }s\in S_H \Big\}.
+\]
+
+\begin{thm}[{\cite[Theorem 1.2]{Parry1992}}]
+For any $g=(f,x)\in A\wr H$, the word length of $g$ with respect to the standard generating set is
+	\[
+	|g|=\mathrm{TSP}(e_H,x,\supp{f}).
+	\]
+\end{thm}
+
+
+\subsection{Random walks on groups}
+\begin{enumerate}
+	\item Recall basic concepts of random walks on groups.
+\end{enumerate}
+\subsection{Defective adapted cocycles and the central limit theorem}
+
+\begin{enumerate}
+	\item Introduce all necessary results and definitions of Mathieu-Sisto.
+	\item Introduce pivots and the results of Gouëzel that we will use.
+\end{enumerate}
+
+
+We will use the following general criterion of Mathieu-Sisto.
+
+\begin{defin}[Defective adapted cocycle]
+
+\end{defin}
+
+\begin{thm}[\cite{MathieuSisto2020}] \label{thm: MS general CLT with constant deviation ineq}
+	Suppose that $Q_n$ is a defective adapted cocycle with defect
+	\[
+	\Phi_{m,n} := Q_n - (Q_m + w_m Q_{m-n}).
+	\]
+	Suppose that there exists $C>0$ such that  \[
+	\sup_{m,n\ge 1}\E[|\Phi_{m,n}|^2] \le C.
+	\]
+	 Then the CLT holds for $Q_n$.
+\end{thm}

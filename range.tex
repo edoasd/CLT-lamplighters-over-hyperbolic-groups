@@ -1,0 +1,30 @@
+\section{The CLT for the range of random walks on hyperbolic groups}
+
+We borrow the framework from \cite{MathieuSisto2020} for proving a CLT - We observe the following trivial fact that whenever $ 1 \leq m \leq n $ and denoting $ R _{m,n} $ for the range between times $ m $ and $ n $ we have 
+\[ |R _{n}| = |R _{m}| + |R _{m,n}| - |R _{m} \cap R _{m,n}|  .\]
+
+In the language of \cite{MathieuSisto2020}, we say that $ \{ |R _{n}| \} _{n\geq 1} $ is a \emph{defective adapted cocycle} with defect $ \Phi _{m,n} := |R _{m} \cap R _{m,n}| $.
+
+By theorem 4.2 in \cite{MathieuSisto2020}, to prove a CLT for the sequence $ |R _{n}| $ it is enough to show a second-moment deviation inequality: that 
+
+\[ \mathbb{E} [\Phi _{m,n} ^{2} ] \leq C .\] 
+
+For some $ C $ not depending on $ m,n $. We instead prove a stronger version of the deviation inequality:
+
+\begin{prop}  There exists $ C>0 $ such that for any $ 1 \leq m \leq n $.
+	\[ \mathbb{P}(\Phi _{m,n} \geq k) \leq Ce ^{-k/C} ,\]
+\end{prop}
+\begin{proof}
+	Let $ \hat{R} _{n} $ denote the range of the reversed random walk - that is, the random walk driving by $ \hat{\mu} $.` If is enough to show that for any $ n, n' \in \mathbb{N} $ we have 
+	\[ \mathbb{P}(\sup _{n, n'} |\hat{R} _{n} \cap R _{n} | \geq k) \leq Ce ^{-k/C} .\]
+	
+	This is an immediate consequence of lemma 5.3 of \cite{Choi2023deviation}. \textcolor{blue}{(maybe this is actually Lemma 4.9 of the arxiv version of \cite{Choi2023deviation}?)}
+\end{proof}
+
+This concludes the proof of Theorem \ref{thm: CLT range on hyperbolic groups}.
+
+\red{I have a question: do we know of ANY random walk that is transient but does not satisfy a CLT for range? I think this may be unknown}
+
+\blue{Whenever you have a positive density of cut times, I think you should be able to make a regeneration-type argument to prove a CLT for the range, so you need to look for transient random walks which travel sublinearly, maybe $\mathbb{Z}^3$ is a good candidate?}
+
+\red{Yes indeed, on $Z^3$ the variance of the range is not like $\sqrt{n}$. However, with the appropriate normalization there is a CLT; this is proved here \cite{JainPruitt1970,JainPruitt1971}. Maybe one can construct groups that interpolate between $\Z^3$ and something else to find a group that has different limit laws along different subsequences?}

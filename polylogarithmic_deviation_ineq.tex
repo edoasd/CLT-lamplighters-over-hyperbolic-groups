@@ -1,0 +1,30 @@
+
+In this section we explain a generalization of \cite[Theorems 4.1 \& 4.2]{MathieuSisto2020} (see Theorem \ref{thm: MS general CLT with constant deviation ineq})
+
+\begin{thm} \label{thm: polylogarithmic MS CLT}
+    Suppose that $Q_n$ is a defective adapted cocycle with defect
+    \[
+       \Phi_{m,n} := Q_n - (Q_m + Z_m Q_{m-n})
+    \]
+    and suppose that for some fixed polynomial $p$ and $N_0 \in \mathbb{N}$ we have that
+    \[
+       \E[|\Phi_{m,n}|^2] \le p(\log (n))
+    \]
+    whenever $m, n-m \ge N_0$.
+    Then a CLT holds for $Q_n$.
+\end{thm}
+\red{Is this the formulation we want?}
+
+Here are the places in the proof of Mathieu-Sisto's CLT where the deviation inequality is used:
+\begin{enumerate}
+    \item In Theorem 4.4 one obtains $V(Q_n)\le n\Big(p(4 \E(Q_1^2)+ 16\log(n))\Big)$
+    \item Then in Lemma 4.5 it is cited a result of Hammersley \cite[Theorem 2]{Hammerslet1962}. This should be replaced by an inequality of the form $a_{n+m}\le a_n+a_m+bp(log(n+m))$.
+    \begin{lem}
+    	Let $\{a_n\}_{n\ge 0}$ be a sequence of non-negative real numbers. Suppose that there exists $b\ge 0$ and a polynomial $p:\R_{+}\to \R_{+}$ such that 
+    	\[
+    	a_{n+m}\le a_n+a_m+b\sqrt{p(log(a_n+a_m))}, \text{ for each }m,n\ge 0.
+    	\]
+    	Then the limit $\lim_{n\to \infty} \frac{a_n}{n}$ exists.
+    \end{lem}
+    \item The deviation inequality is used in multiple occasions during the proof of Lemma 4.6. One should do the appropriate modifications.
+\end{enumerate}

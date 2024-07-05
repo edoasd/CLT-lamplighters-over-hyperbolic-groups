@@ -1,0 +1,24 @@
+\section{Introduction}
+\begin{enumerate}
+\item	Talk about random walks on groups; trying to prove limit laws in general
+\item Make a list of things known about lamplighters and why they are relevant
+\item Say that in this paper we concentrate on the CLT
+\end{enumerate}
+\blue{Here are some things that we should cite... I am missing many more but this is a good start.}
+\cite{BenoistQuint2016,BenoistQuint2016hyperbolic,Bjorklund2010,Choi2023,ErschlerZheng2022,GekhtmanTaylorTiozzo2022,Gilch2022,Gouezel2017,Horbez2018,LeBars2022,Ledrappier2001,MrazovicSandriSebek2023,Salaun2001,SawyerSteger1987}.
+
+
+\subsection{Main results}
+
+Consider the switch-walk-switch word length $|\cdot |$ on $A\wr H$.
+
+\begin{thm}
+	Let $A$ be a non-trivial group and $H$ a non-elementary hyperbolic group. Consider a probability measure $\mu$ on $A\wr H$ such that $\mu_H$ is non-elementary and has a finite second moment, and such that $\mu$ has bounded lamp range. Denote by $\{w_n\}_{n\ge 0}$ the $\mu$-random walk on $A\wr H$, and let $C=\lim_{n\to \infty}\frac{\E(|w_n|)}{n}$ be the drift of the $\mu$-random walk on $A\wr B$. Then the sequence of normalized random variables $\frac{|w_n|-Cn}{\sqrt{n}}$, $n\ge 1$, converges in law to a non-degenerate gaussian law.
+\end{thm}
+
+\red{What are the moment hypotheses for acylindrically hyperbolic base groups? Finite support? exponential tails?}
+
+We prove a central limit theorem for the range of random walks with a finite second moment on hyperbolic groups.
+\begin{thm}\label{thm: CLT range on hyperbolic groups}
+	Let $H$ be a non-elementary hyperbolic group and let $\mu$ be a non-elementary probability measure on $H$ with a finite second moment. Let $C$ be the probability that the $\mu$-random walk on $H$ starting at $e_H$ never returns to $e_H$. Then the sequence of normalized random variables $\frac{|R _{n} | - Cn}{\sqrt{n}}$, $n\ge 1$, converges in law to a non-degenerate gaussian law.
+\end{thm}
