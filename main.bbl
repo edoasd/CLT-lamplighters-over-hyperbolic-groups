@@ -1,9 +1,14 @@
-\begin{thebibliography}{Cho23b}
+\begin{thebibliography}{BFGK24}
 
 \bibitem[Bar22]{LeBars2022}
 Corentin~Le Bars.
 \newblock Central limit theorem on cat(0) spaces with contracting isometries,
   2022.
+
+\bibitem[BFGK24]{BahmanianForghaniGekhtmanMallahiKarai2024}
+Amin Bahmanian, Behrang Forghani, Ilya Gekhtman, and Mallahi-Karai Keivan.
+\newblock A central limit theorem for random walks on horospherical products of
+  {G}romov hyperbolic spaces, 2024.
 
 \bibitem[Bj{\"{o}}10]{Bjorklund2010}
 Michael Bj{\"{o}}rklund.
@@ -38,7 +43,7 @@ Anna Erschler and Tianyi Zheng.
   product.
 \newblock {\em Probab. Theory Related Fields}, 182(3-4):999--1033, 2022.
 
-\bibitem[Gil08]{Gilch2022}
+\bibitem[Gil08]{Gilch2008}
 L.~A. Gilch.
 \newblock Acceleration of lamplighter random walks.
 \newblock {\em Markov Process. Related Fields}, 14(4):465--486, 2008.
