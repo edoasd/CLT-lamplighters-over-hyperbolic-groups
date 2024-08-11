@@ -1,16 +1,19 @@
 \section{Introduction}
+In this paper we consider wreath products where the group of lamps is a finite group, and the base group is a hyperbolic group. We will consider a word length in these wreath products given by the switch-walk-switch generating set with respect to some fixed generating set of $H$ (see Subsection \ref{subsubsection: the sws word metric}).
 
+\begin{thm}\label{thm: main theorem CLT for word length for lamplighter over a hyperbolic base group}
+	Let $A$ be a non-trivial finite group and $H$ a non-elementary hyperbolic group, endowed with the switch-walk-switch word metric $|\cdot|_{\mathrm{sws}}$ associated with some arbitrary finite generating set of $H$. Consider a finitely supported probability measure $\mu$ on $A\wr H$ such that $\supp{\mu_H}$ is non-elementary. Denote by $\{w_n\}_{n\ge 0}$ the $\mu$-random walk on $A\wr H$, and let $C=\lim_{n\to \infty}\frac{\E(|w_n|_{\mathrm{sws}})}{n}$ be the drift of the $\mu$-random walk on $A\wr H$. Then the sequence of normalized random variables $\frac{|w_n|_{\mathrm{sws}}-Cn}{\sqrt{n}}$, $n\ge 1$, converges in law to a non-degenerate gaussian random variable.
+\end{thm}
+This result is new even for simple random walks on $\Z/2\Z\wr F_2$.
 
+%We prove a central limit theorem for the range of random walks with a finite second moment on hyperbolic groups.
+%\begin{thm}\label{thm: CLT range on hyperbolic groups}
+%	Let $H$ be a non-elementary hyperbolic group and let $\mu$ be a non-elementary probability measure on $H$ with a finite second moment. Let $C$ be the probability that the $\mu$-random walk on $H$ starting at $e_H$ never returns to $e_H$. Then the sequence of normalized random variables $\frac{|R _{n} | - Cn}{\sqrt{n}}$, $n\ge 1$, converges in law to a non-degenerate gaussian law.
+%\end{thm}
 
-\begin{enumerate}
-\item	Talk about random walks on groups; trying to prove limit laws in general
-\item Make a list of things known about lamplighters and why they are relevant
-\item Say that in this paper we concentrate on the CLT
-\end{enumerate}
-\blue{Here are some things that we should cite... I am missing many more but this is a good start.}
-\cite{Salaun2001}.
+\subsection{Background}
 
-\begin{enumerate}
+\begin{itemize}
 	\item The CLT for non-abelian free groups is due to \cite{SawyerSteger1987} and \cite{Ledrappier2001}. Then for non-elementary hyperbolic groups with a finite exponential moment is due to \cite{Bjorklund2010}. This was generalized for any finite second moment measure in \cite{BenoistQuint2016hyperbolic}. The last two results hold more generally for group acting on a Gromov hyperbolic space by isometries. \cite{BenoistQuint2016} show a CLT for random walks on $\mathrm{GL}_d(\R)$ with a finite second moment. See also \cite{Gouezel2017}.
 	\item \cite{ErschlerZheng2022} prove a law of large numbers for random walks on $\Z/2\Z\wr \Z^2$ with a finite $(2+\varepsilon)$-moment, for some $\varepsilon>0$. They also discuss limit laws in other wreath products.
 	\item \cite{BahmanianForghaniGekhtmanMallahiKarai2024} prove a central limit theorem for random walks on the group of affine transformations of a horospherical product of Gromov hyperbolic spaces.
@@ -21,20 +24,4 @@
 	\item  \cite{Gilch2008} proves that the drift of $\Z/2\Z\wr G$ is strictly larger than that of its projection to $G$.
 	\item \cite{MrazovicSandriSebek2023} prove a LLN and CLT for the capacity of the range of a random walk on a group.
 	\item \cite{Salaun2001} proves a LLN and CLT for a simple random walk on a free group, conditioned on the boundary point.
-\end{enumerate}
-
-
-\subsection{Main results}
-
-Consider the switch-walk-switch word length $|\cdot |$ on $A\wr H$.
-
-\begin{thm}
-	Let $A$ be a non-trivial group and $H$ a non-elementary hyperbolic group. Consider a probability measure $\mu$ on $A\wr H$ such that $\mu_H$ is non-elementary and has a finite second moment, and such that $\mu$ has bounded lamp range. Denote by $\{w_n\}_{n\ge 0}$ the $\mu$-random walk on $A\wr H$, and let $C=\lim_{n\to \infty}\frac{\E(|w_n|)}{n}$ be the drift of the $\mu$-random walk on $A\wr B$. Then the sequence of normalized random variables $\frac{|w_n|-Cn}{\sqrt{n}}$, $n\ge 1$, converges in law to a non-degenerate gaussian law.
-\end{thm}
-
-\red{What are the moment hypotheses for acylindrically hyperbolic base groups? Finite support? exponential tails?}
-
-We prove a central limit theorem for the range of random walks with a finite second moment on hyperbolic groups.
-\begin{thm}\label{thm: CLT range on hyperbolic groups}
-	Let $H$ be a non-elementary hyperbolic group and let $\mu$ be a non-elementary probability measure on $H$ with a finite second moment. Let $C$ be the probability that the $\mu$-random walk on $H$ starting at $e_H$ never returns to $e_H$. Then the sequence of normalized random variables $\frac{|R _{n} | - Cn}{\sqrt{n}}$, $n\ge 1$, converges in law to a non-degenerate gaussian law.
-\end{thm}
+\end{itemize}

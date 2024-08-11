@@ -2,7 +2,7 @@
 
 \bibitem[Bar22]{LeBars2022}
 Corentin~Le Bars.
-\newblock Central limit theorem on cat(0) spaces with contracting isometries,
+\newblock Central limit theorem on {CAT}(0) spaces with contracting isometries,
   2022.
 
 \bibitem[BFGK24]{BahmanianForghaniGekhtmanMallahiKarai2024}
@@ -25,17 +25,12 @@ Yves Benoist and Jean-Fran\c{c}ois Quint.
 \newblock Central limit theorem for linear groups.
 \newblock {\em Ann. Probab.}, 44(2):1308--1340, 2016.
 
-\bibitem[Cho23a]{Choi2023}
+\bibitem[Cho23]{Choi2023}
 Inhyeok Choi.
 \newblock Central limit theorem and geodesic tracking on hyperbolic spaces and
   {Teichm{\"u}ller} spaces.
 \newblock {\em Adv. Math.}, 431:68, 2023.
 \newblock Id/No 109236.
-
-\bibitem[Cho23b]{Choi2023deviation}
-Inhyeok Choi.
-\newblock Random walks and contracting elements {I}: Deviation inequality and
-  limit laws, 2023.
 
 \bibitem[EZ22]{ErschlerZheng2022}
 Anna Erschler and Tianyi Zheng.
@@ -67,26 +62,11 @@ Ilya Gekhtman, Samuel~J. Taylor, and Giulio Tiozzo.
   curvature.
 \newblock {\em Compos. Math.}, 158(10):1980--2013, 2022.
 
-\bibitem[Ham62]{Hammerslet1962}
-J.~M. Hammersley.
-\newblock Generalization of the fundamental theorem on sub-additive functions.
-\newblock {\em Proc. Cambridge Philos. Soc.}, 58:235--238, 1962.
-
 \bibitem[Hor18]{Horbez2018}
 Camille Horbez.
 \newblock Central limit theorems for mapping class groups and
   {{\(\operatorname{Out}(F_N)\)}}.
 \newblock {\em Geom. Topol.}, 22(1):105--156, 2018.
-
-\bibitem[JP70]{JainPruitt1970}
-Naresh~C. Jain and William~E. Pruitt.
-\newblock The central limit theorem for the range of transient random walk.
-\newblock {\em Bull. Amer. Math. Soc.}, 76:758--759, 1970.
-
-\bibitem[JP71]{JainPruitt1971}
-Naresh~C. Jain and William~E. Pruitt.
-\newblock The range of transient random walk.
-\newblock {\em J. Analyse Math.}, 24:369--393, 1971.
 
 \bibitem[Led01]{Ledrappier2001}
 Fran\c{c}ois Ledrappier.

@@ -1,10 +1,18 @@
 \section{Preliminaries}
+\subsection{Notation for graphs and paths}
+\begin{itemize}
+	\item We will work with undirected, unlabeled graphs $(V,E)$.
+	\item A path $\gamma=(\gamma_0,\gamma_1,\ldots, \gamma_n)$ is an ordered sequence of vertices in the graph.
+\end{itemize}
 
 \subsection{Hyperbolic groups}
 Say basic things about hyperbolicity; explain pivots
 
-\subsection{Lamplighter groups}
-We consider the wreath products $A\wr H$, where $A$ is a finite non-trivial group and $H$ is a finitely generated group. Let $S_H$ be a finite and symmetric generating set of $H$. Then we consider the \emph{switch-walk-switch} $S_{\mathrm{sws}}$ generating set of $A\wr H$, given by
+\subsection{Wreath products}
+We consider the wreath products $A\wr H$, where $A$ is a finite non-trivial group and $H$ is a finitely generated group. Let $S_H$ be a finite and symmetric generating set of $H$. 
+
+\subsubsection{The switch-walk-switch word metric}\label{subsubsection: the sws word metric}
+We consider the \emph{switch-walk-switch} $S_{\mathrm{sws}}$ generating set of $A\wr H$, given by
 \[
 S_{\mathrm{sws}}\coloneqq \Big\{ (\delta_a,0)(\mathbf{0},s)(\delta_{a^{\prime}},0)\Big| a,a^{\prime}\in A\text{ and }s\in S_H \Big\}.
 \]
@@ -12,36 +20,66 @@ S_{\mathrm{sws}}\coloneqq \Big\{ (\delta_a,0)(\mathbf{0},s)(\delta_{a^{\prime}},
 \begin{thm}[{\cite[Theorem 1.2]{Parry1992}}]
 For any $g=(f,x)\in A\wr H$, the word length of $g$ with respect to the standard generating set is
 	\[
-	|g|=\mathrm{TSP}(e_H,x,\supp{f}).
+	|g|_{\mathrm{sws}}=\mathrm{TSP}(e_H,x,\supp{f}).
 	\]
 \end{thm}
 
 
 \subsection{Random walks on groups}
-\begin{enumerate}
-	\item Recall basic concepts of random walks on groups.
-\end{enumerate}
+ Let $G$ be a countable group and consider a probability measure $\mu$ on $G$. Consider the product space $\Omega\coloneqq G^{\Z_{+}}$ endowed with the product $\sigma$-field. For each $n\ge 1$ we denote by
+	\begin{equation*}
+		\begin{aligned}
+			X_n:\Omega&\to G\\
+			w\coloneqq(w_1,w_2,\cdots)&\mapsto X_n(w)\coloneqq w_n
+	\end{aligned}
+	\end{equation*}
+	the $n$-th coordinate map. We endow $\Omega$ with the product probability measure $\mu^{\Z_{+}}.$
+		
+We denote by
+	\begin{equation*}
+	\begin{aligned}
+		\theta:\Omega&\to \Omega\\
+		w\coloneqq(w_1,w_2,\cdots)&\mapsto \theta(w)\coloneqq (w_2,w_3,\ldots)
+	\end{aligned}
+\end{equation*}
+the shift map in the space of increments.
+
+
+Now we define the $\mu$-random walk $\{Z_n\}_{n\ge 0}$ on $G$ as follows. We define $Z_0(w)=e_G$ for each $w\in \Omega$, and for each $n\ge 1$ we define
+\[
+Z_n(w)\coloneqq Z_{n-1}(w)\cdot X_n(w).
+\]
+We remark that $Z_n(w) (Z_m\circ \theta^n)(w)=Z_{n+m}(w)$, for each $w\in \Omega$ and $n,m\ge 1$.
+
+
 \subsection{Defective adapted cocycles and the central limit theorem}
 
-\begin{enumerate}
-	\item Introduce all necessary results and definitions of Mathieu-Sisto.
-	\item Introduce pivots and the results of Gouëzel that we will use.
-\end{enumerate}
+A sequence $\mathcal{Q}=\{Q_n\}_{n\ge 1}$ of maps $Q_n:\Omega\to \R$ such that $Q_n$ is measurable with respect to $\sigma(X_1,\ldots, X_n)$, for each $n\ge 1$, is called a \emph{defective adapted cocycle}. We will use the convention $Q_0\equiv 0.$ The \emph{defect of $\mathcal{Q}$} is the collection of maps $\Psi=\{\Psi_{n,m}\}_{n,m\ge 0}$ defined by
+\[
+\Psi_{n,m}(w)=Q_{n+m}(w)-Q_n(w)-(Q_m\circ \theta^n)(w), \text{ for each }w\in \Omega \text{ and }n,m\ge 0.
+\] 
+The following result states that the central limit theorem holds for defective adapted cocycles that satisfy a second-moment deviation inequality.
 
 
-We will use the following general criterion of Mathieu-Sisto.
-
-\begin{defin}[Defective adapted cocycle]
-
-\end{defin}
-
-\begin{thm}[\cite{MathieuSisto2020}] \label{thm: MS general CLT with constant deviation ineq}
-	Suppose that $Q_n$ is a defective adapted cocycle with defect
-	\[
-	\Phi_{m,n} := Q_n - (Q_m + w_m Q_{m-n}).
-	\]
-	Suppose that there exists $C>0$ such that  \[
-	\sup_{m,n\ge 1}\E[|\Phi_{m,n}|^2] \le C.
-	\]
-	 Then the CLT holds for $Q_n$.
+\begin{thm}[{\cite[Theorem 4.2]{MathieuSisto2020}}] \label{thm: MS general CLT with constant deviation ineq}
+	Let $G$ be a countable group endowed with a probability measure $\mu$. Consider $\mathcal{Q}$ a defective adapted cocycle on $\Omega=G^{\Z_{+}}$, and denote by $\{\Psi_{n,m}\}_{n,m\ge 0}$ its defect. Suppose that
+	\begin{enumerate}
+		\item $\E[|Q_1|^{2}]<\infty$, and
+		\item 	$\sup_{m,n\ge 0} \left\{ \E\left[|\Psi_{n,m}|^2\right]\right\} <\infty$.
+	\end{enumerate}
+	
+Then, there exist constants $\ell,\sigma\in \R$ such that the random variables $\frac{1}{\sqrt{n}}\left(Q_n-\ell n\right)$ converge in law to a Gaussian random variable with zero mean and variance $\sigma^2$.
 \end{thm}
+
+Furthermore, it is proved in \cite[Theorem 3.3]{MathieuSisto2020} that the constant $\ell$ that appears in the statement of Theorem \ref{thm: MS general CLT with constant deviation ineq} satisfies that $\frac{1}{n}Q_n$ converges to $\ell$ in $L_1$ as $n\to \infty$.  
+
+
+We will use this result for the defective adapted cocycle obtained from the word length of the $\mu$-random walk on $G$ at time $n$. That is, we will consider some word metric $d$ on $G$, and define $Q_n\coloneqq d(e_G,Z_n)$, for each $n\ge 1$. Since we will be working with finitely supported probability measures, it holds immediately that $\E[|Q_1|^2]<\infty$. 
+
+
+The objective of the following sections of this paper is to prove that there exists a constant $C>0$ such that
+\[
+\E[d(e_G,Z_{n+m})-d(e_G,Z_n)-d(e_G,Z_m\circ \theta^n)]=\E[|\Psi_{n,m}|^2]\le C, \text{ for each }n,m\ge 0,
+\]
+
+where $G=A\wr H$, $d$ will be the switch-walk-switch word metric and $\mu$ is a finitely supported probability measure, as in the hypotheses of Theorem \ref{thm: main theorem CLT for word length for lamplighter over a hyperbolic base group}.
