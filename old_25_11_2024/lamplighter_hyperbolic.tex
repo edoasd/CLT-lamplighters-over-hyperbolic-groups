@@ -36,17 +36,34 @@ The following lemma will be our main tool.
 	\]
 
 \end{lem}
+%\begin{proof}[Sketch of proof]
+%	This is proven in proposition 4.11 in Gouëzel's paper, where for Gouëzel's definition of pivots, conditions 1,2, and 4 are met. To see why Gouëzel's proof implies the lemma we state, we observe that for Gouëzel's definition of pivots, the increments $Z _{m} ^{-1} Z _{m+N} $ are drawn from some explicit finite set of isometries $ S \subset H $ that receive positive support from $ \mu_{H} ^{*N} $. For this finite set of isometries, we can pick some $ D>0 $ large enough so that $ \mu ^{*N} $ gives positive mass to each of the sets $ \pi _{H} ^{-1} (s) = \{(\varphi, s)\mid \supp{ \varphi} \subset B _{D} ([e_H,s])\}$, for $s\in S$. Then tracing through the rest of Gouëzel's proof we have the estimate required. 
+%\end{proof}
+
 
 \subsection{The structure of the TSP along pivot times}
 
 	Suppose that we are looking at a sample path $\{Z_n\}_{n\ge 0}$ of the $\mu$-random walk on $A\wr H$, and that we have a $(C,D,L,N)$- pivot time $m$. Denote by $Z_n=(\varphi_n,Z_n^H)$ the lamp configuration and projection to $H$ of $Z_n$, respectively. Let  $\gamma$ be an arbitrary geodesic path from $Z_m^{H}$ to $Z^{H}_{m+N}$ on $\cay{H}{S_H}$. Then, using that the support of $\mu$ is finite, we can find constants $C,D\ge 1$ such that the support of $\varphi_n$ can be decomposed as a disjoint union \[\supp{\varphi_n}=P^{\prime}_1\cup P^{\prime}_2\cup P^{\prime}_3,\]
-
+%	Then, since $\mu$ is finitely supported, there exist constants $\widetilde{C},\widetilde{D}>0$ such that the support of $\varphi_n$ can be decomposed as a disjoint union \[\supp{\varphi_n}=P^{\prime}_1\cup P^{\prime}_2\cup P^{\prime}_3,\]
 that satisfies the following properties. Let us denote $P_1=P^{\prime}_1\cup\{Z^{H}_{m+u}\}$, $P_2=P^{\prime}_2\cup \{Z^{H}_{m}, Z^{H}_{m+N}\}$ and  $P_3=P^{\prime}_3\cup \{Z^{H}_{m+N}\}$. Then we have $d_H(Z_m^H,Z_{m+N}^H)\ge L$, together with
 \begin{enumerate}
 	\item for all $g\in P_1$, we have $d_H\left( \pi_{\gamma}(g) ,Z_m^H  \right)\le C$,
 	\item for all $g\in P_2$ we have $d_H(g,\gamma)\le D$, and
 	\item for all $g\in P_3$, we have $d_H\left( \pi_{\gamma}(g),Z^H_{m+N} \right)\le C$.
 \end{enumerate}
+
+%\begin{prop}\label{prop: structure along pivots}
+%	Suppose that we are looking at a sample path $\{Z_n\}_{n\ge 0}$ and that we have a pivoting time $m$. Then the group element $Z_n=(f_n,x_n)$ satisfies the following. The support of $f_n$ can be decomposed as a disjoint union
+%	\[\supp{f_n}=P^{\prime}_1\cup P^{\prime}_2\cup P^{\prime}_3,\]
+%	that satisfies the following properties. Let us denote $P_1=P^{\prime}_1\cup\{Z^{H}_{m+u}\}$, $P_2=P^{\prime}_2\cup \{Z^{H}_{m+u}, Z^{H}_{m+u+N}\}$ and  $P_3=P^{\prime}_3\cup \{Z^{H}_{m+u+N}\}$. Let  $\gamma$ be an arbitrary geodesic path from $Z_m^{H}$ to $Z^{H}_{m+N}$ on $\cay{H}{S_H}$. Then we have
+%	\begin{enumerate}
+%		\item $d_H(Z_m^H,Z_{m+N}^H)\ge L$,
+%		\item for all $g\in P_1$, we have $d_H\left( \pi_{\gamma}(g) ,Z_m^H  \right)\le C$,
+%		\item for all $g\in P_2$ we have $d_H(g,\gamma)\le D$, and
+%		\item for all $g\in P_3$, we have $d_D\left( \pi_{\gamma}(g),Z^H_{m+N} \right)\le C$.
+%	\end{enumerate}
+%\end{prop}
+
 
 \begin{defin}
 	 Let $g=(f,x)\in A\wr H$ and let $\eta$ be a path on $\cay{A\wr H}{S_{\mathrm{sws}}}$ that realizes $|g|_{S_{\mathrm{sws}}}$. We will identify $\eta$ with a path of minimal length on $\cay{H}{S_H}$ that starts at $e_H$, visits all elements in $\supp{f}$, and finishes at $x$. Consider the finite subsets $P_1,P_2,P_3\subseteq H$ as above. We define the associated \emph{coding} of $\eta$ as the word $u$ in the alphabet $\{P_1,P_2,P_3\}$, such that $u_i=P_j$ if and only if at the $i$-th step of $\eta$, there is a lamp at a position in $P_j$ which was modified for the first time.
@@ -80,8 +97,12 @@ Let us decompose the path $\eta$ as a concatenation of paths $\eta=\eta_1\eta_2\
 	&= \mathrm{length}(\eta) - 2L+7C +7<\mathrm{length}(\eta),
 	\end{align*}
 	since $L>20C+100\delta+1$. This is a contradiction, since the path $\widetilde{\eta}$ is strictly shorter than $\eta$ and it is also a solution to the TSP associated with $Z_n$.
+%	\newpage
+%	Surgery, meaning that you glue together the excursions to $P_1$, and you glue together the excursions to $P_3$, and connect them with any path through $P_2$. This gives something even shorter than optimal since each gluing strictly reduces the length of the path.
+%	
+%	
 \end{proof}
-
+%We are going to abuse notation (in this draft) and not make a distinction between the elements visited by a path, and the coding in the alphabet $\{P_1,P_2,P_3\}$ associated with it.
 \begin{defin}
 	Given a path $\eta$ in $\cay{A\wr H}{S_{\mathrm{sws}}}$, let us call a \emph{backtracking} a subpath of $\eta$ that has an associated coding of the form $P_1P_2^{*}P_3^{\varepsilon}P_2^{*}P_1^{\varepsilon^{\prime}}P_2^{*}P_3$ for $\varepsilon, \varepsilon^{\prime}\ge 1$. Here the $*$ symbolizes $0$ or more occurrences of the symbol.
 \end{defin}
@@ -92,19 +113,44 @@ Let us decompose the path $\eta$ as a concatenation of paths $\eta=\eta_1\eta_2\
 \end{lem}
 \begin{proof}
 	Indeed, thanks to Lemma \ref{lem: groceries lemma p1p3p1p3}, if $\eta$ has a backtracking, then during this subpath there must be at least one lamp in a position on $P_2$ that is modified. Since an optimal path needs to modify a lamp only once, and there are $|P_2|$ lamp positions in $P_2$, one obtains the result (the extra factor of $2$ comes from the fact that consecutive backtrackings may share a subpath).
-
+%	
+%	Every backtracking must contain at least one element of $P_2$. (Recall that the path only has an element in its coding if it has not been visited before).
 \end{proof}
 
+%\begin{lem}
+%	Consider the trajectory $\{Z_k\}_{k=0}^n$ of the $\mu$-random walk up to time $n$, together with the sets $P_1$, $P_2$ and $P_3$ as above.
+%	%Consider a sequence of points $\{Z_n\}_n$ of $H$, that satisfies the decomposition of $\supp{\varphi_n}$ given by the three conditions above.
+%	%, such that $\pi_{\gamma}(Z_0)$ is within distance $C$ of the beginning of $\gamma$, and $\pi_{\gamma}(Z_n)$  is within distance $C$ of the end of $\gamma$. Also we have that the length of $\gamma$ is at least $L$ (where $L$ is the large constant from the definition of pivots). (this is equivalent to satisfying the three properties above).
+%	Let $T$ be the length of a solution to the TSP problem $\mathrm{TSP}\left(Z^H_0,Z^H_n,P_1\cup P_2\cup P_3\right)$. Then there exists a path $\eta$ that starts at $Z^H_0$, finishes at $Z^H_n$ and visits all points in $\supp{\varphi_n}$ such that $length(\eta)\le T+100 N (L+2D)$, and such that, in the coding of $\eta$, all instances of $P_1$ appear before any instance of $P_3$.
+%	
+%%	The path $\eta$ induces a linear order of $\supp{f_n}$. What we require is that in the coding of $\eta$, all the elements of $P_1$ appear before any of $P_3$. (i.e. the coding does not have a subsequence of the form $P_3 P_1$).
+%\end{lem}
 \begin{lem}
 Consider the trajectory $\{Z_k\}_{k=0}^n$ of the $\mu$-random walk up to time $n$, together with the sets $P_1$, $P_2$ and $P_3$ as above.
 Let $T$ be the length of a solution to the TSP problem associated with $Z_n$. Then there exists a path $\eta$ that starts at $Z^H_0$, finishes at $Z^H_n$ and visits all points in $\supp{\varphi_n}$ such that $length(\eta)\le T+100 N (L+2D)$, and such that, in the coding of $\eta$, all instances of $P_1$ appear before any instance of $P_3$.
-
+%	The path $\eta$ induces a linear order of $\supp{f_n}$. What we require is that in the coding of $\eta$, all the elements of $P_1$ appear before any of $P_3$. (i.e. the coding does not have a subsequence of the form $P_3 P_1$).
 \end{lem}
 \begin{proof}
 	Let us denote by $\eta_0$ the solution to the TSP associated with $Z_n$. Note that thanks to Lemma \ref{lem: number of backtrackings}, the number of backtrackings in $\eta_0$ is at most $2|P_2|$.
-
+	%\textbf{Claim: } Any optimal solution to the TSP never sees a sequence of the form $P_1P_3^{*}P_1^{*}P_3$.
+	%\textbf{Proof: }Surgery, meaning that you glue together the excursions to $P_1$, and you glue together the excursions to $P_3$, and connect them with any path through $P_2$. This gives something even shorter than optimal since each gluing strictly reduces the length of the path.
+%	Lemma \ref{lem: groceries lemma p1p3p1p3} implies Corollary \ref{cor: number of backtrackings} that the total number of backtrackings is the size of $P_2$.
 	We modify the path $\eta_0$ as follows: first do all excursions of $\eta_0$ on $P_1$ concatenating them in the boundary between $P_1$ and $P_2$. This adds at most $\#|\text{excursions in }P_1|\cdot 2CD$ units of length. Then visit all elements of $P_2$, and finish at $Z_{m+N}^H$. This adds $K(C,D,\ell(\gamma),N)$ units of length. Then do all excursion in $P_3$. This adds again at most $\#|\text{excursions in }P_3|\cdot 2CD$ units of length. Note that $\#|\text{excursions in }P_1|+\#|\text{excursions in }P_3|\le 4\#|\text{backtrackings}|\le 8\#|P_2|$. Hence, the new path has a larger length only by a constant written in terms of the parameters of the pivot time.
+	
+	
+%	 In total we added at most $2D\times$(number of backtrackings)+(length of solution of TSP in P2 that visits all elements in P2). And the number of backtrackings is at most $|P_2|$ by the previous claim.
+%	
+	%Start with the optimal solution to the TSP. This path will cross through $N_D(\gamma)$ a bounded number of times (at most the size of $P_2$). This implies that we can modify it (do surgery  near the starting and finishing points of $\gamma$) so that we obtain path that crosses through $N_D(\gamma)$ only once, while increasing length at each surgery a bounded number, and we do a bounded number of surgeries.
 \end{proof}
+% Below are some suggestions that could simplify the proof of the TSP part. They are based on the argument we had in the solution without pivots. It's great if you already have a complete proof of lemma 6, but if it truns out to be more time consuming that expected, I hope these suggestions could help.
+% It may be convenient to slightly modify the construction to make sure that every geodesic segment joining a point in P_1 with a point in P_2 or in P_3 intersects some set $B_1$ of small (relative to L) diameter that lies close to $Z_m$ and "separates" P_1 from P_2 and P_3. The condition on projections ensures that this holds for geodesic segments from $P_1$ to $P_3$, but we may need some additional assumptions to make sure that this holds for geodesic segments from P_1 to P_2.  Of course, we would also like to find a similar set B_2 for P_3.
+
+% Kunal: thanks for the helpful suggestions! I agree that it is important that every geodesic segment joining a point in P_1 with a point in P_3 intersects a bounded neighbourhood of something 'separating' P_1 from P_2 and P_3. This is the role played by the geodesic \gamma in our arguments. At the pivotal time, we pass through some long geodesic such that (1) everything in P_1 projects near the beginning of gamma, (2) everything in P_2 is within a bounded neighbourhood of gamma, and (3) everything in P_3 projects near the end of gamma. By elementary hyperbolic geometry, this implies any geodesic connecting P_1 to P_2 or P_3 (or P_2 to P_3) must come within a bounded neighbourhood of gamma. In fact, this neighourhood of gamma serves the role of B_1 and B_2 simultaneously.
+
+%These modifications would allow us to get an easy upper bound on the total length of the segments added in the "surgery". The fact that B_1 and B_2 are far apart would be helful in bounding the number of the corssings of the central region.
+% It is also sufficient to bound the number of crossings of N_D as a constant-times- (size of P_2), we had an argument with 4*(size of P_2). To get this bound one can show that the TSP solution can not contain four consecutive crossings of the central region that do not add any point in P_2 to the TPS (otherwise, one can remove the long corossings and connect their intersections with B_1 and B_2 within these regions in appropriate order to get a shorter curve).
+
+%Kunal: I absolutely agree, it seems like Eduardo and I had the same argument in mind.
 
 In other words, we are saying that trying to solve the problem by first visiting all elements of $P_1$, and then visiting all elements of $P_3$, and crossing the middle section only once, is at a bounded length of being optimal.
 
@@ -112,7 +158,8 @@ In other words, we are saying that trying to solve the problem by first visiting
 	$$\sup_{m\ge 1}\E\left[\left( \sum_{i=m}^{m+U+N}|g_i| \right)^2\right]\le C.$$
 \end{lem}
 \begin{proof}
-
+%	\textcolor{blue} { I'll go into the construction of pivots and explain why this is true. Maybe there's a simpler reasoning using only the exponential estimates on $ U $}.
+%	
 	Recall that the way Gouëzel constructs pivots is as follows: if we let $ S \subset H$ be our finite Schottky set, then we can decompose some convolution power $ \mu _{H} ^{*N} $ as \[ \mu _{H} ^{*N} = \alpha \mu _{S} + (1-\alpha)\nu \] for some $ \alpha >0$. Then we draw our increments as follows: let $ \{ \varepsilon _{i} \} _{i} $ be i.i.d. Bernoulli($ \alpha $) random variables. If $ \varepsilon _{i} = 1 $, we draw $ g' _{i} = s _{i} $ according to $ \mu _{S} $. Else we draw $g' _{i} = w _{i} $ according to $ \nu $. We observe that the sequence $ \{ g '_{1}...g' _{k} \} _{k} $ has the same distribution as $ \{ g _{1}...g _{k} \} _{k} $ for $ g _{i} \sim \mu _{H} ^{N} $.
 	
 	Now we denote the resampled random walk by $ g' _{1}...g' _{n} =w _{1}...w _{k _{1}} s _{1} w _{k _{1} +1} ...w _{k _{2}} s _{2} ... $, where the strings between $ s _{i}'s $ may be empty. Now each string $ w _{k _{i-1} +1}...w _{k _{i}} s _{i}  $ is distributed according to $ \nu ^{Z}* \mu _{S} $, where $ Z $ is a geometric random variable with parameter $ \alpha $. 

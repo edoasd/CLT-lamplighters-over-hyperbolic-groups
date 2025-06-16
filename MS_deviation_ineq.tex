@@ -1,0 +1,94 @@
+\section{Mathieu-Sisto's deviation inequalities and consequences}
+\subsection{Defective adapted cocycles and the central limit theorem}
+
+A sequence $\mathcal{Q}=\{Q_n\}_{n\ge 1}$ of maps $Q_n:\Omega\to \R$ such that $Q_n$ is measurable with respect to $\sigma(X_1,\ldots, X_n)$, for each $n\ge 1$, is called a \emph{defective adapted cocycle}. We will use the convention $Q_0\equiv 0.$ The \emph{defect of $\mathcal{Q}$} is the collection of maps $\Psi=\{\Psi_{n,m}\}_{n,m\ge 0}$ defined by
+\[
+\Psi_{n,m}(w)=Q_{n+m}(w)-Q_n(w)-(Q_m\circ \theta^n)(w), \text{ for each }w\in \Omega \text{ and }n,m\ge 0.
+\] 
+The following result states that the central limit theorem holds for defective adapted cocycles that satisfy a second-moment deviation inequality.
+
+
+\begin{thm}[{\cite[Theorem 4.2]{MathieuSisto2020}}] \label{thm: MS general CLT with constant deviation ineq}
+	Let $G$ be a countable group endowed with a probability measure $\mu$. Consider $\mathcal{Q}$ a defective adapted cocycle on $\Omega=G^{\Z_{+}}$, and denote by $\{\Psi_{n,m}\}_{n,m\ge 0}$ its defect. Suppose that
+	\begin{enumerate}
+		\item $\E[|Q_1|^{2}]<\infty$, and
+		\item 	$\sup_{m,n\ge 0} \left\{ \E\left[|\Psi_{n,m}|^2\right]\right\} <\infty$.
+	\end{enumerate}
+	
+	Then, there exist constants $\ell,\sigma\in \R$ such that the random variables $\frac{1}{\sqrt{n}}\left(Q_n-\ell n\right)$ converge in law to a Gaussian random variable with zero mean and variance $\sigma^2$.
+\end{thm}
+
+Furthermore, it is proved in \cite[Theorem 3.3]{MathieuSisto2020} that the constant $\ell$ that appears in the statement of Theorem \ref{thm: MS general CLT with constant deviation ineq} satisfies that $\frac{1}{n}Q_n$ converges to $\ell$ in $L_1$ as $n\to \infty$.  
+
+
+We will use this result for the defective adapted cocycle obtained from the word length of the $\mu$-random walk on $G$ at time $n$. That is, we will consider some word metric $d$ on $G$, and define $Q_n\coloneqq d(e_G,Z_n)$, for each $n\ge 1$. Since we will be working with finitely supported probability measures, it holds immediately that $\E[|Q_1|^2]<\infty$. 
+
+
+The objective of the following sections of this paper is to prove that there exists a constant $C>0$ such that
+\[
+\E[d(e_G,Z_{n+m})-d(e_G,Z_n)-d(e_G,Z_m\circ \theta^n)]=\E[|\Psi_{n,m}|^2]\le C, \text{ for each }n,m\ge 0,
+\]
+
+where $G=A\wr H$, $d$ will be the switch-walk-switch word metric and $\mu$ is a finitely supported probability measure, as in the hypotheses of Theorem \ref{thm: main theorem CLT for word length for lamplighter over a hyperbolic base group}.
+
+\subsection{Continuity results}
+The following results are obtained in Sections 5 and 6 of Mathieu-Sisto paper.
+\begin{enumerate}
+	\item Continuity and differentiability of drift .
+	\item Continuity and differentiability of asymptotic entropy.
+\end{enumerate}
+We will apply them to lamplighters over hyperbolic groups.
+\subsection{Polylog deviation inequalities}
+
+In this section we explain a generalization of \cite[Theorems 4.1 \& 4.2]{MathieuSisto2020} (see Theorem \ref{thm: MS general CLT with constant deviation ineq})
+\red{remember to do the modification of n to m+n.}
+\begin{thm} \label{thm: polylogarithmic MS CLT}
+	Suppose that $Q_n$ is a defective adapted cocycle with defect
+\[
+\Psi_{n,m}(w)=Q_{n+m}(w)-Q_n(w)-(Q_m\circ \theta^n)(w), \text{ for each }w\in \Omega \text{ and }n,m\ge 0.
+\] 
+	Suppose that for some fixed polynomial $p$ and $N_0 \in \mathbb{N}$ we have that
+	\[
+	\E[|\Psi_{n,m}|^2] \le p(\log (n+m))
+	\]
+	whenever $n,m \ge N_0$.
+	Then a CLT holds for $Q_n$.
+\end{thm}
+
+Here are the places in the proof of Mathieu-Sisto's CLT where the deviation inequality is used:
+\begin{enumerate}
+%	\item In Theorem 4.4 one obtains $V(Q_n)\le n\Big(p(4 \E(Q_1^2)+ 16\log(n))\Big)$
+%	\item Then in Lemma 4.5 it is cited a result of Hammersley \cite[Theorem 2]{Hammerslet1962}. This should be replaced by an inequality of the form $a_{n+m}\le a_n+a_m+bp(log(n+m))$.
+	\item The deviation inequality is used in multiple occasions during the proof of Lemma 4.6. One should do the appropriate modifications.
+\end{enumerate}
+The proof follows very similarly to that of \cite[Theorems 4.1\& 4.2]{MathieuSisto2020}. We now explain the parts of the proof where minor modifications are needed.
+
+	The first step in the proof is \cite[Theorem 4.4]{MathieuSisto2020} and its application to obtain \cite[Theorem 4.2]{MathieuSisto2020}. With an analogous proof, one obtains 
+	\[
+	V(Q_n)\le n\left(p\E(Q_1^2)+16\log(n)\right),
+	\]
+	where $p$ is the polynomial from the second moment deviation inequality.
+	
+	The second part of the proof is in \cite[Lemma 4.5]{MathieuSisto2020}. Here, we can use \cite[Theorem 2]{Hammerslet1962} to obtain the following statement.
+	\begin{lem}\label{lem: hammersley}
+		Let $(a_n)_{n\ge 0}$ be a sequence of real numbers and let $p$ be a polynomial. Suppose that there is $b\ge 0$ such that
+		\[
+		a_{n+m}\le a_n+a_m+bp(\log(n+m)),\text{ for each }n,m\ge 1.
+		\]
+		Then $\lim_{n\to \infty}\frac{a_n}{n}$ exists.
+	\end{lem}
+	 The most important part of the proof is the following lemma. 
+	 \begin{lem}
+	 	Let $(Q_n)_n$ be a DAC with a finite second moment and that satisfies a second-moment deviation inequality. Then
+	 	\[
+	 	\lim_{M\to \infty}\limsup_{n\to \infty}\frac{1}{n}V\Big(Q_n-\sum_{j=0}^{\lceil n/2^M \rceil-1}Q_{2^M}\circ \theta_{j2^M}\Big)=0.
+	 	\]
+	 \end{lem}
+	 \begin{proof}
+	 	This should be done more carefully.
+	 \end{proof}
+
+
+
+
+

@@ -51,36 +51,3 @@ Now we define the $\mu$-random walk $\{Z_n\}_{n\ge 0}$ on $G$ as follows. We def
 Z_n(w)\coloneqq Z_{n-1}(w)\cdot X_n(w).
 \]
 We remark that $Z_n(w) (Z_m\circ \theta^n)(w)=Z_{n+m}(w)$, for each $w\in \Omega$ and $n,m\ge 1$.
-
-
-\subsection{Defective adapted cocycles and the central limit theorem}
-
-A sequence $\mathcal{Q}=\{Q_n\}_{n\ge 1}$ of maps $Q_n:\Omega\to \R$ such that $Q_n$ is measurable with respect to $\sigma(X_1,\ldots, X_n)$, for each $n\ge 1$, is called a \emph{defective adapted cocycle}. We will use the convention $Q_0\equiv 0.$ The \emph{defect of $\mathcal{Q}$} is the collection of maps $\Psi=\{\Psi_{n,m}\}_{n,m\ge 0}$ defined by
-\[
-\Psi_{n,m}(w)=Q_{n+m}(w)-Q_n(w)-(Q_m\circ \theta^n)(w), \text{ for each }w\in \Omega \text{ and }n,m\ge 0.
-\] 
-The following result states that the central limit theorem holds for defective adapted cocycles that satisfy a second-moment deviation inequality.
-
-
-\begin{thm}[{\cite[Theorem 4.2]{MathieuSisto2020}}] \label{thm: MS general CLT with constant deviation ineq}
-	Let $G$ be a countable group endowed with a probability measure $\mu$. Consider $\mathcal{Q}$ a defective adapted cocycle on $\Omega=G^{\Z_{+}}$, and denote by $\{\Psi_{n,m}\}_{n,m\ge 0}$ its defect. Suppose that
-	\begin{enumerate}
-		\item $\E[|Q_1|^{2}]<\infty$, and
-		\item 	$\sup_{m,n\ge 0} \left\{ \E\left[|\Psi_{n,m}|^2\right]\right\} <\infty$.
-	\end{enumerate}
-	
-Then, there exist constants $\ell,\sigma\in \R$ such that the random variables $\frac{1}{\sqrt{n}}\left(Q_n-\ell n\right)$ converge in law to a Gaussian random variable with zero mean and variance $\sigma^2$.
-\end{thm}
-
-Furthermore, it is proved in \cite[Theorem 3.3]{MathieuSisto2020} that the constant $\ell$ that appears in the statement of Theorem \ref{thm: MS general CLT with constant deviation ineq} satisfies that $\frac{1}{n}Q_n$ converges to $\ell$ in $L_1$ as $n\to \infty$.  
-
-
-We will use this result for the defective adapted cocycle obtained from the word length of the $\mu$-random walk on $G$ at time $n$. That is, we will consider some word metric $d$ on $G$, and define $Q_n\coloneqq d(e_G,Z_n)$, for each $n\ge 1$. Since we will be working with finitely supported probability measures, it holds immediately that $\E[|Q_1|^2]<\infty$. 
-
-
-The objective of the following sections of this paper is to prove that there exists a constant $C>0$ such that
-\[
-\E[d(e_G,Z_{n+m})-d(e_G,Z_n)-d(e_G,Z_m\circ \theta^n)]=\E[|\Psi_{n,m}|^2]\le C, \text{ for each }n,m\ge 0,
-\]
-
-where $G=A\wr H$, $d$ will be the switch-walk-switch word metric and $\mu$ is a finitely supported probability measure, as in the hypotheses of Theorem \ref{thm: main theorem CLT for word length for lamplighter over a hyperbolic base group}.

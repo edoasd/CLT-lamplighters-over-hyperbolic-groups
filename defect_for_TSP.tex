@@ -1,0 +1,231 @@
+
+\section{General bounds for the defect of the TSP}
+In this section we explain the key inequality for the TSP along the trajectory of the random walk. We will use this inequality to bound the norm of defective adapted cocycles in the next sections.
+
+Let $(X,d)$ be a proper geodesic metric space. Recall that for the points $P, Q \in X$ and a finite set of points $L$, we denote by the $TSP(P,L,Q)$ the length of the shortest path in $X$ which starts at $P$, ends at $Q$, and visits every point in $L$. Let $\alpha$ be some solution to the $TSP(P,L,Q)$ and let us list the points of $L=\{l_1,\ldots,l_k\}$ in the order of their fist appearances along $\alpha$ $L=(l_{\pi(1)},\ldots,l_{\pi(k)})$. Then we have the following equality $$TSP(P,L,Q)
+=d(P,l_{\pi(1)})+\sum_{i=1}^{k-1}d(l_{\pi(i)},l_{\pi(i+1)})+d(l_{\pi(k)},Q)$$ and the permutation $\pi \in \mathrm{Sym}(k) $ determines $\alpha$ uniquely up to the choice of the geodesic segments connecting $P$ with $l_{\pi(1)}$, $Q$  with $l_{\pi(k)}$ and $l_{\pi(i)}$ with $l_{\pi(i+1)}$ for $i=1, \ldots, k-1$. For any solution $\alpha$ of the $TSP(P,L,Q)$, we will refer to the points in $\{P,Q\}\cup L$ as the \textit{nodes} of $\alpha$. In the proof of the next lemma we will view $\alpha$ as a homeomorphism from some segment into $X$, and whenever we talk about a subpath of $\alpha$ we mean the restriction of this homeomorhpism to a closed subsegment.
+\red{Here we should change the symmetric difference by a union}
+\begin{lem}\label{comb_argument}
+Let $P,Q,R$ be three distinct points in the metric space $X$. Pick two finite sets $L_1, L_2 \subset X$.  We will call the points in  $L_1 \cup L_2 \cup \{P,Q,R\}$ the marked points. Let $I,C,T \subseteq X$ be three bounded sets such that the following conditions hold.
+\begin{enumerate}
+    \item $P \in I$, $Q \in C$ and $R \in T$.
+    \item $ I \cap T =\emptyset $. 
+    \item $ L_1 \subseteq I \cup C$ and 
+    $ L_2 \subseteq C \cup T$.
+    
+\end{enumerate}
+
+Moreover, assume that there are two compact sets $B_1, B_2 \subseteq X$  such that the following conditions hold.
+\begin{enumerate}
+\item $B_1 \cap T= B_2 \cap I= \emptyset$.
+ \item Any geodesic segment joining a marked point in $I$ with a marked point in $C \cup T$ intersects $B_1$, and any geodesic segment joining a marked point in  $T$ with a marked point in $I \cup C$ intersects $B_2$.
+ \item If $x$ is any marked point in $I$ and $y$ is any marked point in $C$, then for any geodesic segment $\gamma$ connecting $x$ and $y$ the closest to $x$ point in  $\gamma \cap (B_1 \cup B_2)$ is in $B_1$ and the closest to $y$ point in $\gamma \cap (B_1 \cup B_2)$ is in $B_2$.
+ \item If $D_1$ is the maximum of diameters of $B_1$ and $B_2$, then $d(B_1,B_2) > 2D_1$.
+\end{enumerate}
+  Let $D_2$ denote the diameter of $B_1 \cup C \cup B_2$ and let $N$ be the number of marked points in $C$. Then the following inequality holds.
+\begin{align*}
+    & 0 \leq TSP(P, L_1, Q)+TSP(Q, L_2, R) - TSP(P, L_1 \Delta L_2, R) \leq N(12D_1+2D_2)
+\end{align*}
+
+\end{lem}
+
+\begin{proof}
+ Since the concatenation of any solution of $TSP(P, L_1, Q)$ with any solution of $TSP(Q, L_2, R)$ at $Q$ produces a path that starts in $P$, ends at $R$, and visits every point in $L_1 \Delta L_2$, the first inequality follows.
+
+ 
+ In order to prove the second part of the inequality we will show that any solution $\alpha$ of the $TSP(P, L_1 \Delta L_2, R) $ contains two non-overlapping parts $\alpha_I$ and $\alpha_T$, such that $\alpha_I$ is close to the solution of $TSP(P, L_1, Q)$ and $\alpha_T$ is close to the solution of $TSP(Q, L_2, R)$.
+ 
+ Let $\alpha$ be any path from $P$ to $R$ realizing the solution to $TSP(P, L_1 \Delta L_2, R)$. We define \textit{the trace} of $\alpha$ in $I \cup B_1$ denoted by $\alpha_I$ as follows. Let $\pi$ be the permutation of $L_1 \Delta L_2 =\{x_1,\ldots,x_k\}$ that defines $\alpha$ and let $s_i$ be a geodesic segment of $\alpha$ joining $x_{\pi(i)}$ and $x_{\pi(i+1)}$. Then, if both endpoints of $s_i$ belong to $I$ we include $s_i$ into the trace $\alpha_I$. If exactly one of the endpoints of $s_i$, let us denote it  by $x$, is in $I$, then we can find the closest to $x$ intersection of $s_i$ with $B_1$, denoted by $y$, and add the part of $s_i$ between $x$ and $y$ to the trace $\alpha_I$. Otherwise, no new points from $s_i$ are added to the trace.
+
+
+It is easy to see that $\alpha_I$ is a union of maximal subpaths $p_1,\ldots p_t$ of $\alpha$, such that for any $i=1,\ldots, t$ the subpath $p_t$ has both of its endpoints in $B_1 \cup \{P\}$.  Now, we are going to show that one can add a collection of geodesic segments of total length at most $N(6D_1+D_2)$ to $\alpha_I$  to get a path that starts at $P$, ends at $Q$, and visits every point in $L_1$. 
+
+Since the sets $I,C,T$ satisfy the conditions (1)-(3) from the statement of the lemma, we have $L_1 \cap (I \setminus C) =(L_1 \Delta L_2) \cap (I \setminus C)$, so $\alpha_I$ already contains every point in $L_1 \cap (I \setminus C)$. Therefore, if $\beta$ is any path that starts at $P$, contains $\alpha_I$, and ends at a point in $B_1$, then one can extend $\beta$ to a path that visits every point of $L_1$ and ends at $Q$  as follows.  First, we connect the points in $L_1 \cap C$ by geodesic segments in arbitrary order, and then one of the endpoints of the resulting path is connected with the endpoint of $\beta$ that lies in $B_1$, while  the other end of this path is connected to $Q$. Notice that the total length of the geodesic segments that we add to $\beta$ in this procedure will not exceed $ND_2$.
+
+Next we will construct a suitable path $\beta$ by joining the subpaths $p_1,\ldots, p_t$ of $\alpha_I$ by at most $6N$ geodesic segments, with each segment having the length at most $D_1$. We need  the following fact.
+\begin{claim}
+ Let $p_1,\ldots,p_t$ be the list of the subpaths of $\alpha_I$ defined above. Then $t \leq 6N$.
+\end{claim}
+
+\begin{proof}
+  Let $\pi$ be the permutation defining $\alpha$ and let $s_1,...s_{k+1}$ be the corresponding geodesic segments. Notice that by definition each of these segments corresponds to the first visit of $\alpha$ to a new point from $ L_1 \Delta L_2$.  
+
+  We will trace the paths $p_1, \ldots, p_t$ as we travel along $\alpha$. By definition, each path $p_i$, except for $p_1$,  starts and ends with subsegments of uniquely determined geodesic segments $s'_i$ and $s_i$ of $\alpha$ which connect marked points with points in $B_1$. The other endpoint of $s_i$ must be a new marked point that belongs either to $C \setminus T$ or to $T$. If this marked endpoint is in $T$ we will call $s_i$ a \textit{leap}, and if it is in $C \setminus T$, we will call $s_i$ a \textit{step}. It is easy to see that the number of \textit{steps} can not exceed the number of marked points in $C \setminus T$ and this number is less or equal to $N$. Therefore, it suffices to show that the number of leaps can not exceed $5N$. 
+  
+  We will prove even stronger statement, namely, that the number of the geodesic segments of $\alpha$ joining marked vertices in $I$ with marked vertices in $T$ can not exceed $5N$.  For the following combinatorial argument, it will be convenient to introduce the coding of the nodes of $\alpha$ by symbols $\mathcal{I},\mathcal{C},\mathcal{T}$. Naturally, a point is coded by $\mathcal{I}$ if it belongs to $I$, by $\mathcal{C}$ if it belongs to $C \setminus(I \cup T)$ and by $\mathcal{T}$, if the point is in $T$. Thus, if $\alpha$ has $k+2$ nodes including $P$ and $R$, the coding will produce a word $ \omega$ of length $k+2$ starting with letter $\mathcal{I}$ and ending with $\mathcal{T}$ which contains no more than $N$ letters $\mathcal{C}$.  Moreover, every geodesic segment of $\alpha$ joining a node in $I$ with a node in $T$ corresponds to a unique subword $\mathcal{IT}$ or $\mathcal{TI}$ in $\omega$. We claim that if the number of subwords $\mathcal{IT}$ or $\mathcal{TI}$ in $\omega$ is at least $5N$, then $\alpha$ could be replaced by a strictly shorter path contradicting the definition of the solution to the TSP. Indeed, assume that $\omega$  contains at least $5N$ subwords of the form $\mathcal{IT}$ or $\mathcal{TI}$, then since it contains only $N$ letters $\mathcal{C}$, there exists a subword of $\omega$ which contains $4$ consecutive subwords of the form $\mathcal{IT}$ or $\mathcal{TI}$ and does not contain letter $\mathcal{C}$. Hence this word contains a subword of the form  $\mathcal{I}\mathcal{T}^a\mathcal{I}^b\mathcal{T}$ where $a,b \geq 1$. In geometric terms this means that $\alpha$ contains a path $\gamma$ of the following form: 
+  \begin{enumerate}
+      \item $\gamma$ contains three geodesic segments of $\alpha$ $P_1Q_1, Q_2P_2$, and $P_3Q_3$ such that $P_1, P_2, P_3 \in I$ and $Q_1,Q_2, Q_3 \in T$, and $\gamma$ starts with the segment $P_1Q_1$ and ends with the segment $P_3Q_3$.
+      \item all nodes of $\gamma$ between $Q_1$ and $Q_2$ are contained in $T$, while all of its nodes visited  between $P_2$ and $P_3$ belong to $I$.
+  \end{enumerate}
+
+Notice that conditions (1)-(3) on $B_1$ and $B_2$ imply that each of the segments $P_1Q_1$ and $P_2Q_2$ intersects both $B_1$ and $B_2$, and the length of each of these segments is at least $2D_1$.  
+
+Now we are going to run a "surgery" procedure that produces a suitable shortening $\gamma'$ of $\gamma$.
+Let $x_1$ and $x_2$ be closest to $P_1$ and to $P_2$, respectively, intersections of $P_1Q_1$ and of $Q_2P_2$ with $B_1$, and for $i=1,2,3$ we define $y_i$ as the closest to $Q_i$ intersection of $P_iQ_i$ with $B_2$. Then $\gamma'$ is constructed as follows. It starts at $P_1$ and tracks $P_1Q_1$ until it reaches $x_1$, then $\gamma'$ moves from $x_1$ to $x_2$ and follows $\gamma$ until it reaches $y_3$ visiting all of the nodes between $P_2$ and $P_3$ in the process. After $\gamma'$ reaches $y_3$ it moves to $y_1$ and follows $\gamma$ until it reaches $y_2$ visiting all of the nodes between $Q_1$ and $Q_2$ in the process. Finally, from $y_2$ $\gamma'$ moves to $y_3$ and follows $\gamma$ to $Q_3$.
+
+It is easy to see that $\gamma'$ starts at $P_1$, ends at $Q_3$, and visits all of the nodes of $\gamma$.  Moreover, $\gamma'$ is obtained by removing segments $x_1y_1$ and $x_2y_2$, each of length greater than $2D_1$, from $\gamma$, and adding the segments $x_1x_2$, $y_3y_1$ and $y_2y_3$. Since $D_1$ is the maximum of the diameters of $B_1$ and $B_2$, the total length of the segments added does not exceed $3D_1$, so $\gamma'$ is indeed strictly shorter than $\gamma$.
+
+Finally, if one replaces $\gamma$ in $\alpha$ by $\gamma'$, the resulting path still starts at $P$, ends at $R$, and visits every point in $L_1 \Delta L_2$, but is shorter than $\alpha$, and this contradicts the assumption that $\alpha$ realizes the solution to the $TSP(P, L_1 \Delta L_2, R)$.
+Therefore, the number of leaps is also bounded by $5N$, and  $t \leq 6N$.
+\end{proof}
+Now the construction of $\beta$ is completed as follows. For $i=1,\ldots,t-1$ connect the ending point of $p_i$ in $B_1$ with the starting point of $p_{i+1}$ in $B_1$ by a geodesic segment, by definition of $D_1$ such a segment of would have length at most $D_1$. Since $t \leq 6N$, we have added the segments of total length at most $6ND$ to $\alpha_I$, and it is easy to see that the resulting path starts at $P$, contains $\alpha_I$, and ends at a point in $B_1$.
+
+Therefore, we can conclude that the length $l(\alpha_I)$ satisfies the inequality $$ l(\alpha_I) \geq TSP(P, L_1, Q) -N(6D_1+D_2).$$
+
+The trace $\alpha_T$ is defined similarly, and a similar argument shows that $$ l(\alpha_T) \geq TSP(P, L_2, Q) -N(6D_1+D_2).$$
+
+It is easy to see that no node of $\alpha$ appears in  both $\alpha_I$ and $\alpha_T$, so they have no subpath of $\alpha$ in common, and therefore, we have 
+\begin{align*}
+   &TSP(P, L_1, Q)+TSP(Q, L_2, R)-N(12D_1+2D_2) \leq l(\alpha_I)+l(\alpha_T)  \leq l(\alpha)
+\end{align*}
+ This completes the proof of the second inequality.
+
+
+ 
+\end{proof}
+\section{Acylindrically hyperbolic groups}
+
+In this section we will use lemma \ref{comb_argument} to obtain the upper bounds on the moments of the defective adapted cocycles when the base group $H$ is acylindrically hyperbolic. 
+
+We remind that our goal is to prove an inequality of the following kind: there is a polynomial with positive coefficients $p$ (probably power 5 or 6) such that for any $n.m\ge 1$ we have
+\[
+\E(|\|\Psi_{n,m}|^2)\le p(\log(n)+\log(m)).
+\]
+
+With this in mind, for finitely supported random walk, then we can restrict to supposing $n>C\log(n+m)$ for some big constant $C$. Indeed, if $n\le C\log(n+m)$, then  $\Psi_{n,m}\le C n$ (it is after all a difference of the word lengths).
+
+
+
+The following proposition is a straightforward corollary of Theorem 9.1 and Theorem 10.7 in \cite{MathieuSisto2020}
+
+\begin{prop}\label{prop: tracking}
+Let $H$ be a finitely generated acylindrically hyperbolic group and let $\mu_H$ be a symmetric non-elementary probability measure on $H$ with finite exponential moment.  Choose arbitrary finite symmetric generating set of $H$ and let $d_H$ be the corresponding  word metric on $H$.  Finally, we denote by $Z_n$ the Then the following statements hold.
+
+
+\begin{enumerate}
+    \item There exists a constant $K$ such that  for any $n \geq 1$
+    \begin{align*}
+      \mathbb{P}^{\mu_H} \left( d_H(Z_n,e_H) \leq n/K \right) \leq Ke^{-n/K}
+    \end{align*}
+    \item [uniform geodesic tracking] There is a constant $C$ such that for any $n \geq 1$, for each pair $(i,j)$ with $1 \leq i < j \leq n $  and each geodesic segment $\alpha$ joining $Z_i$ and $Z_j$ we have
+    \begin{align*}
+      \mathbb{P}^{\mu_H} \left( \max_{ i\leq k \leq j} d_H(Z_k,\alpha) \geq C \log n \right) \leq C/n^4
+    \end{align*}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+The first statement immediately follows from Theorem 9.1, Remark 10.2 and statement 1 in Proposition 10.3 in \cite{MathieuSisto2020} 
+
+The second statement follows from Theorem 10.7 and Remark 10.2 in \cite{MathieuSisto2020} combined with the union bound.
+\end{proof}
+\red{We should decide whether to replace the first item with union bound.}
+
+\begin{lem}\label{lem: uniform progress}
+	Let $K_0$ be the constant of Proposition \ref{prop: tracking}. Then there is a constant $K_1$ such that with probability $1-\frac{1}{(n+m)^2}$ we have the following. As soon as $|i-j|\ge K_1\log(n+m)$, for $i,j\in \{0,\ldots n+m\}$, we have $d_H(Z_i,Z_j)\ge \frac{|i-j|}{K_0}$.
+\end{lem}
+\begin{proof}
+	Union bound using Proposition \ref{prop: tracking}.
+\end{proof}
+
+Our aim is to reduce the situation to a deterministic setting that occurs with high probability. Then, we apply the combinatorial argument, and afterwards we estimate the moments associated with the constants that appear in the combinatorial lemma, using that the deterministic setting occurs with high probability.
+
+From now on consider $n,m\ge 1$ such that $n,m \geq C_0\log(n+m)$.
+
+From now on, using the uniform geodesic tracking from Proposition \ref{prop: tracking}, we will assume that  there is a constant $C_1$ for each pair $(i,j)$ with $1 \leq i < j \leq n+m $  and each geodesic segment $\alpha$ joining $Z_i$ and $Z_j$ we have
+
+\[
+\max_{ i\leq k \leq j} d_H(Z_k,\alpha) \leq C_1 \log (n+m),
+\]
+with probability at least $1-C_1\frac{1}{(n+m)^4}$.
+
+From now on, let us denote
+$$
+W=C_1\log(n+m).
+$$
+
+
+
+\subsection{Definitions of $\mathfrak{I}$, $\mathfrak{M}$  and $\mathfrak{T}$}
+We will first define the sets $\mathfrak{I}$, $\mathfrak{M}$ and $\mathfrak{T}$, and then explain why they have the properties that we need.
+
+Now we fix a constant $C_2$ much larger than $C_1$. 
+
+We take $R=d_H(e_H,Z_m)$. Let us fix a geodesic $\alpha$ from $e_H$ to $Z_{n+m}$.  Consider the neighborhood of $\alpha$ of radius $W$:
+
+$$
+N_{W}(\alpha)=\{g\in H\mid d_H(\alpha, g)\le W\}.
+$$
+
+ We define 
+
+\[
+\mathfrak{I}\coloneqq \{g\in H\mid d_H(g,e_H)\le R-C_2\log(n+m)\}\cap N_W(\alpha).
+\]
+
+\[
+\mathfrak{T}\coloneqq \{g\in H\mid d_H(g,e_H)\ge R+C_2\log(n+m)\}\cap N_W(\alpha).
+\]
+
+\[
+\mathfrak{M}\coloneqq \{g\in H\mid R-C_2\log(n+m) \le d_H(g,e_H)\le R+C_2\log(n+m)\}\cap N_W(\alpha).
+\]
+
+
+Matthieu-Sisto, with our choice of $n$ and $m$, will guarantee that $\mathfrak{I}$ and $\mathfrak{T}$ will be non-empty.
+
+By definition we have $Z_0=e_H\in \mathfrak{I}$ and $Z_m\in \mathfrak{M}$. We will prove that with high probability, the trajectory of the random walk between times $1$ and $m$ does not enter $\mathfrak{T}$, trajectory between $m$ to $m+n$ does not enter $\mathfrak{I}$. In particular, $Z_{m+n}\in \mathfrak{T}$ with high probability.
+
+From the definition, we have $\mathfrak{I}\cap \mathfrak{T}=\varnothing$. For us, $L_1=\{Z_0,Z_1,\ldots, Z_m\}$ and $L_2=\{Z_{m+1},\ldots, Z_{m+n}\}.$
+
+Let us now define $B_1$ and $B_2$.
+
+\[
+B_1\coloneqq \{g\in H\mid d_H(g,e_H)=R-C_2\log(n+m)\}\cap N_{4W}(\alpha).
+\]
+
+\[
+B_2\coloneqq \{g\in H\mid d_H(g,e_H)=R+C_2\log(n+m)\}\cap N_{4W}(\alpha).
+\]
+
+By definition we have $B_1\cap \mathfrak{I}=B_2\cap \mathfrak{T}=\varnothing$. This verifies the first condition. The third condition follows from the definition. The fourth condition will follow from the fact that we chose $C_2>>C_1$. The second condition will be the most technically challenging to verify. It will follow from our assumption of uniform geodesic tracking.
+
+Now we will prove that the sets we have defined together with the points $Z_0$, $Z_m$ and $Z_{n+m}$ verify the conditions of the combinatorial lemma.
+
+
+
+\begin{lem}
+	If we choose $C_2>>C_1$ large enough, under the assumptions of uniform geodesic tracking and Lemma \ref{lem: uniform progress}, we can guarantee that $\{Z_0,Z_1,\ldots ,Z_m\}\cap \mathfrak{T}=\{Z_m,Z_{m+1},\ldots ,Z_{m+n}\}\cap \mathfrak{I}=\varnothing$.
+\end{lem}
+\begin{proof}
+	Otherwise, you can find points $Z_i$, $Z_j$ such that $d_H(Z_i,Z_j)\le  \frac{|i-j|}{K_0}$ with $|i-j|\ge 3 C_1 K_1\log(n+m)$.
+	
+	Now, if we choose $C_2> 3C_1K_1\cdot (step\ length)$ the random walk cannot possibly enter $\mathfrak{I}$ after moment $m$. This proves that $\{Z_m,Z_{m+1},\ldots ,Z_{m+n}\}\cap \mathfrak{I}=\varnothing$. Then a similar reasoning shows $\{Z_0,Z_1,\ldots ,Z_m\}\cap \mathfrak{T}=\varnothing$.
+	
+\end{proof}
+
+\begin{lem} Any geodesic segment joining a point of the trajectory of the random walk $(Z_k)_k$ inside $\mathfrak{I}$ with a marked point in $\mathfrak{M} \cup \mathfrak{T}$ intersects $B_1$, and any geodesic segment joining a  point of the trajectory of the random walk $(Z_k)_k$ inside $\mathfrak{T}$ with a marked point in $\mathfrak{I}\cup \mathfrak{M}$ intersects $B_2$.	
+\end{lem}
+\begin{proof}
+	We will provide the proof for $B_1$; for $B_2$ it is analogous.
+	
+	Suppose that we have $Z_i\in \mathfrak{I}$ and $Z_j\in \mathfrak{M}\cup \mathfrak{T}$. Then we can track trajectory of the random walk between $i$ and $j$ and join them with geodesic segments. This gives a path that we call $P_{i,j}$.
+	
+	Let us denote by $C$ the maximal jump of the random walk. Denote by $\gamma$ a geodesic joining $Z_i$ and $Z_j$. Then for any $y\in P_{i,j}$ is within distance at most $W+C$ from both $\alpha$ and $\gamma$ (this follows from uniform geodesic tracking).
+	
+	To prove our claim, it suffices to show that any point in $\gamma$ is within $4W$ distance of $\alpha$. Then the claim follows from continuity of distance (i.e. at some point the path crosses the appropriate sphere).
+	
+	Take any $y\in \gamma$. We will prove that there is a point in $\alpha$ at distance at most $4W$ from $y$. Let us split $\gamma$ into two closed segments $[Z_i,y]$ and $[y,Z_j]$. Then any point in $P_{i,j}$ is at distance at most $W+C$ from at least one of these subsegments. By connectivity, we can find a point $z\in P_{i,j}$ such that $z$ is at distance at most $W+C$ from both segments. Let us denote $\pi_1(z)\in [Z_i,y]$ and $\pi_2(z)\in [y,Z_j]$ such that $d_H(z,\pi_1(z))\le W+C$ and $d_H(z,\pi_2(z))\le W+C$. The subpath of $\gamma$ that connects $\pi_1(z)$ and $\pi_2(z)$ will be geodesic and contain $y$. Then, by triangular inequality, the length of this geodesic subpath is at most $2W+2C$. suppose without losing generality that $d_H(y,\pi_1(z))\le W+C$. Then the path that connects $y$ to $\pi_1(z)$ to $z$ and then to the projection of $z$ on $\alpha$ has length at most $3W+3C$, and we can assume that $W$ is larger than $3C$. Hence we conclude the upper bound of $4W$.
+\end{proof}
+
+
+\subsection{Estimates for the moments of $N$, $D_1$ and $D_2$}
+
+From what we have done so far we have $D_1\le 16 W$ and $D_2\le 16W +C_2\log(n+m)$. Now we will bound $N$.
+
+For $N$ we have that it is bounded by the diameter of $\mathfrak{M}$ times $K_0$. This follows from uniform progress of the random walk. This gives the upper bound $N\le K_0 (16W+2C+2\log(n+m))+1$.
+
+
+\section{Hyperbolic groups}
+
+We do as above, following similarly to the combinatorial proof I wrote with Kunal using pivots. We need to phrase it, as above, in terms of the combinatorial lemma.

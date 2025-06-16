@@ -1,0 +1,212 @@
+
+\section{The CLT for lamplighter random walks on acylindrically hyperbolic groups}
+
+\begin{thm} \label{thm:lamplighterCLT}
+    Let $G = \Z/2\Z \wr H$ be 
+    a wreath product over a Gromov-hyperbolic group $H$. Let $\tilde{Z}_n$
+    be a random walk on $G$ with 
+    step distribution which is finitely supported and \textcolor{red}{[what is the term for these types of generators? where everything is step or step+light]}. \textcolor{blue}{switch-walk-switch?}
+    Then $d(o,\tilde{Z}_n)$ satisfies a CLT.
+\end{thm}
+
+\textcolor{red}{(Maybe adopt the convention that $\tilde{Z}_n$ is the random walk on the wreath product $G$, while $Z_n$ is its projection to the hyperbolic base group $H$. I think that the notation we've been using is that $R_n \subset H$ is the configuration of lights at time $n$, i.e.
+$\tilde{Z}_n = (R_n, Z_n)$. Since this looks like the range of the random walk, maybe we want to change notation, but this is the notation I'm going to use as I write the lemmas we need for now.)}
+
+For $R \subset H$, $x,y \in H$,
+denote by $TSP(x,R,y)$ a solution to the traveling salesman problem, that is, the edge path in the Cayley graph of $H$ which starts at $x$, ends at $y$, visits each vertex in $R$, and has minimal length subject to this constraints.
+Note that for our choice of generators for $G$, we have that $d((\emptyset,1),(R,x)) = |TSP(1,R,x)|$.
+
+%\begin{thm}[{\cite{MathieuSisto2020}}] \label{thm:generalCLT}
+%    Suppose that $Q_n$ is a defective adapted cocycle with defect
+%    \[
+%       \Phi_{m,n} := Q_n - (Q_m + Z_m Q_{m-n})
+%    \]
+%    and suppose that for some fixed polynomial $p$ and $N_0 \in \mathbb{N}$ we have that
+%    \[
+%       \E[|\Phi_{m,n}|^2] \le p(\log n)
+%    \]
+%    whenever $m, n-m \ge N_0$.
+%    Then a CLT holds for $Q_n$.
+%\end{thm}
+
+\begin{lem}[Deterministic TSP comparison] \label{lem:deterministic}
+   \textcolor{red}{When we write this out properly, we'll figure out what all the proper polynomials are, and the proper definition of the ``middle region'', etc.}
+   There are fixed polynomials $p_1,p_2,p_3,p_4$ such that the following hold.
+   Let $C_1, C_2,$ and $C_3$ be
+   constants. 
+   Let $(R_m,x_m), (R_n,x_n) \in G$
+   and define $R_{m,n} \subset H$
+   by 
+   $(R_{m,n}, x_m^{-1} x_n) :=
+   (R_m, x_m)^{-1} (R_n, x_n)$.
+   Suppose that
+   \begin{enumerate}
+       \item $R_m \cup x_m R_{m,n} \subset \mathcal{N}(\xi, C_1 p_1(\log n))$,
+       that is,
+       every vertex of $R_m \cup x_m R_{m,n}$ is within distance 
+       $C_1 p_1(\log n)$ of $\xi$, 
+       where $\xi$ is a geodesic
+       from $1$ to $x_n$.
+       \item Setting $r := d(o,x_m)$,
+       we have 
+       $R_m \subset B(o,r+C_2 p_2(\log n))$ and
+       $x_m R_{m,n} \subset
+       B(o, r - C_2 p_2(\log n))^c$.
+       \textcolor{red}{(Not exactly
+       clear yet what will be the best way to define the ``middle/left/right'' of the path yet, but I'm using this definition at least for now since it probably will come most easily out of the Hoeffding speed concentration estimates.}
+       \item Set
+       \[
+          M := B(o,r+C_2 p_2(\log n)) \cap B(o, r - C_2 p_2(\log n))^c.
+       \]
+       Then we have that
+       \[
+          |M \cap (R_m \cup x_m R_{n,m})| \le C_3 p_3(\log n).
+       \]
+   \end{enumerate}
+   Then we have that
+   \begin{align*}
+      &|TSP(1,R_n,x_n)| \ge \\
+      &|TSP(1,R_m,x_m)| +
+      |TSP(1,R_{m,n}, x_m^{-1} x_n)|
+      - (C_1 + C_2 + C_3)p_4(\log n).
+   \end{align*}
+   \textcolor{red}{Depending on the analysis, could maybe get some 
+   different expression in the 
+   $C_i$. If we have something
+   of this form (or equivalently,
+   a bound which is poly(log) times
+   $\max(C_1, C_2, C_3)$),
+   then to get the final step
+   it will suffice to show the each
+   $C_i$ is square-integrable (as 
+   a random variable), but
+   if other powers of the $C_i$
+   become involved, might
+   have to show stronger
+   integrability.}
+\end{lem}
+
+\begin{proof}
+The outline of the proof is as follows.
+To simplify the notation, let $D=p_1(\log n)$. Notice that by quasi-convexity  there is an absolute constant $\delta$ such that for any two points $x,y \in N(\xi, D)$ any geodesic between $x$ and $y$ will be contained in $N(\xi,D+\delta)$.  
+
+
+
+\begin{enumerate}
+    \item  We will split $N(\xi, D)$ into three regions - the initial part $I$ close to the origin, the central region $C$ and the terminal part close to $x_n$.  More precisely,  we let $I:=N(\xi, D)\cap B(o, r - C_2 p_2(\log n)$, $C:= N(\xi,D) \cap B(o,r+C_2 p_2(\log n)) \cap B(o, r - C_2 p_2(\log n))^c$ and $T=N(\xi,D) \cap B(o, r + C_2 p_2(\log n))^c$. Polynomial $p_2$ will be determined later.
+    
+    \item  
+    Pick any solution $S$ to  $TSP(1,R_n,x_n)$.  We are going to show that it is possible to add a collection of segments of total length bounded by a fixed polynomial in $\log_n$ to $\overline{I \cap S}$  to get a path starting at $1$, visiting every point in $R_m$ and ending at $x_m$.  Here  $\overline{I \cap S}$ stands for the union of $I \cap S$  together with all geodesic segments of $S$ that join two points in $R_n  \cap I $  but possibly go outside of $I$. Then by the definition of TSP this path would have the length bounded below by $|TSP(1,R_m,x_m)|$.  
+    
+    Similar argument will be applied to $\overline{S \cap T}$ and $|TSP(1,R_{m,n}, x_m^{-1} x_n)|$. Since $\overline{I \cap S}$ and $\overline{T \cap S}$ have no geodesic segments of $S$ in common,  we have  
+    \begin{align*}
+    &|TSP(1,R_n,x_n)|= |S| \ge |\overline{I \cap S}|+|\overline{T \cap S}| \ge \\ 
+     &|TSP(1,R_m,x_m)| +
+      |TSP(1,R_{m,n}, x_m^{-1} x_n)| -P(\log n)
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+
+Since $\Psi_{n,m}$ is bounded above by $3n$, we should be able to reduce the problem to deterministic case using  known deviation estimates and a simple union bound, so most likely we will not need the strongest versions of the next lemmas.
+
+\begin{lem} \label{lem:boundC1}
+    Define the random variable $\mathcal{C}_{1,m,n}$ to be the
+    minimal value of $C_1$
+    such that (1) in Lemma \ref{lem:deterministic} holds 
+    for $\tilde{Z}_m = (R_m,x_m)$
+    and $\tilde{Z}_n = (R_n,x_n)$,
+    i.e.
+    \[
+       \mathcal{C}_{1,m,n} := 
+       \inf \{ C_1 \ge 0 : 
+       d(r,\xi) \le C_1 p_1(\log n) 
+       \mbox{ for all } 
+       r \in R_m \cup Z_m R_{n,m} \},
+    \]
+    where $\xi$ is a geodesic
+    from $1$ to $x_n = Z_n$.
+    Then
+    \[
+       \limsup_{m,n-m \to \infty} \E[ \mathcal{C}_{1,m,n}^2 ] < \infty.
+    \]
+    \textcolor{red}{The proof of this should be via a tail bound
+    which should be contained in ``Tracking Rates of Random Walks'' by Sisto.}
+\end{lem}
+ Since $\Psi_{n,m}$ is bounded above by $3n$, we should be able to reduce the problem to deterministic case using  known deviation estimates and a simple union bound, so most likely we will not need the strongest versions of the next lemmas.
+\begin{lem} \label{lem:boundC2}
+    Define the random variable $\mathcal{C}_{2,m,n}$ to be the
+    minimal value of $C_2$
+    such that (2) in Lemma \ref{lem:deterministic} holds 
+    for $\tilde{Z}_m = (R_m,x_m)$
+    and $\tilde{Z}_n = (R_n,x_n)$.
+    Then
+    \[
+       \limsup_{m,n-m \to \infty} \E[ \mathcal{C}_{2,m,n}^2 ] < \infty.
+    \]
+    \textcolor{red}{It seems likely enough that in the end the bound on $C_2$ will come simultaneously with the bound on either $C_1$ or $C_3$, since it
+    should come from either tracking or speed. In fact, since $C_2$ is a parameter that we use to define the ``middle'' segment $M$, we will want to make it \emph{bigger} than the minimum possible. Maybe in the final argument we will just take 
+    $C_2 = 6 C_1$ or $6 C_3$ or something like that and this lemma won't exist.}
+\end{lem}
+
+\begin{lem} \label{lem:boundC3}
+    Define the random variable $\mathcal{C}_{3,m,n}$ to be the
+    minimal value of $C_3$
+    such that (3) in Lemma \ref{lem:deterministic} holds 
+    for $\tilde{Z}_m = (R_m,x_m)$
+    and $\tilde{Z}_n = (R_n,x_n)$.
+    That is,
+    \[
+       \mathcal{C}_{3,m,n} :=
+       \frac{|M \cap (R_m \cup x_m R_{m,n})|}{p_3(\log n)}.
+    \]
+    Then
+    \[
+       \limsup_{m,n-m \to \infty} \E[ \mathcal{C}_{3,m,n}^2 ] < \infty.
+    \]
+    \textcolor{red}{I expect this to follow from the concentration bounds for speed in ``Random walks in hyperbolic spaces...'' by Aoun and Sert. Probably not quite as immediate as bound on tail of $\mathcal{C}_1$,
+    but I think should go through.}
+\end{lem}
+
+\begin{proof}[Proof of Theorem \ref{thm:lamplighterCLT} given Lemmas]
+   \textcolor{red}{Again, this
+   is assuming that the conclusion
+   of the deterministic lemma
+   has the form I wrote;
+   write out that lemma
+   carefully and adjust the 
+   proof here/lemmas above as 
+   needed.}
+   Define a defective adapted
+   cocycle by
+   \[
+      Q_n := |TSP(1,R_n,Z_n)|
+   \]
+   where $(R_n,Z_n) = \tilde{Z}_n$.
+   By construction of the $\mathcal{C}_i$ and by
+   Lemma \ref{lem:deterministic},
+   we have that the defect satisfies
+   \[
+      |\Psi_{m,n}| \le
+      (\mathcal{C}_{1,m,n} +
+      \mathcal{C}_{2,m,n} +
+      \mathcal{C}_{3,m,n})p_4(\log n).
+   \]
+   By Lemmas \ref{lem:boundC1},
+   \ref{lem:boundC2}, and \ref{lem:boundC3}, there 
+   is some constant $C$ (independent
+   of $m$ and $n$) and some $N_0 \in \N$ such that
+   whenever $m, m-n \ge N_0$
+   we have that
+   \[
+      \E[ \mathcal{C}_{i,m,n}^2] \le C
+   \]
+   for $i=1,2,3$. Cauchy-Schwarz
+   then tells us that for some $C'$,
+   whenever $m, n-m \ge N_0$ we 
+   have
+   \[
+      \E[|\Psi_{m,n}|^2] \le C' p_4(\log n)^2.
+   \]
+   Then applying Theorem \ref{thm: polylogarithmic MS CLT} gives our result.
+\end{proof}
